@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/bnv_aa"
+        android:title="aa"
+        android:icon="@android:drawable/ic_menu_search"/>
+    <item android:id="@+id/bnv_bb"
+        android:title="bb"
+        android:icon="@android:drawable/ic_menu_agenda"/>
+    <item android:id="@+id/bnv_cc"
+        android:title="cc"
+        android:icon="@android:drawable/ic_menu_call"/>
+    <item android:id="@+id/bnv_dd"
+        android:title="dd"
+        android:icon="@android:drawable/ic_menu_camera" />
+    <item android:id="@+id/bnv_ee"
+        android:title="ee"
+        android:icon="@android:drawable/ic_menu_help" />
+
+</menu>
