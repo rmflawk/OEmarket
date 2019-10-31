@@ -21,6 +21,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -72,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(dividerItemDecoration);
 
 
+
+
+
+
+
+
         bnv= findViewById(R.id.bnv);
         bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -81,15 +88,19 @@ public class MainActivity extends AppCompatActivity {
                 //Fragment는 변경하는 것이 일반적임.
                 switch ( item.getItemId() ){
                     case R.id.bnv_aa:
+                        Toast.makeText(MainActivity.this, "aa", Toast.LENGTH_SHORT).show();
                         //findViewById(R.id.recycler).setBackgroundColor(Color.CYAN);
                         break;
                     case R.id.bnv_bb:
+                        Toast.makeText(MainActivity.this, "bb", Toast.LENGTH_SHORT).show();
                         //findViewById(R.id.recycler).setBackgroundColor(Color.MAGENTA);
                         break;
                     case R.id.bnv_cc:
+                        Toast.makeText(MainActivity.this, "cc", Toast.LENGTH_SHORT).show();
                         //findViewById(R.id.recycler).setBackgroundColor(Color.GREEN);
                         break;
                     case R.id.bnv_dd:
+                        Toast.makeText(MainActivity.this, "dd", Toast.LENGTH_SHORT).show();
                         //findViewById(R.id.recycler).setBackgroundColor(Color.BLACK);
                         break;
                 }
@@ -100,8 +111,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }//on Create
-
-
 
 
     @Override

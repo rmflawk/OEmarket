@@ -87,7 +87,7 @@ public class MyAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View view) {
                     int position= getLayoutPosition();
-//                    //Toast.makeText(context, ""+position, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, ""+position, Toast.LENGTH_SHORT).show();
 //
 //                    //상세화면(DetailActivity)에 넘겨줄 데이터들
 //                    String name= datas.get(position).name;
