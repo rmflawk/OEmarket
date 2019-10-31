@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -6,12 +6,17 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
     </style>
 
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Status Bar 색상 변경 -->
+        <item name="android:statusBarColor" tools:targetApi="lollipop">#cccccc</item>
+
     </style>
 
     <style name="AppTheme.Toolbar">
@@ -34,5 +39,11 @@
         <item name="colorControlNormal">@color/white</item>
         <item name="subtitleTextColor">@color/white</item>
     </style>
+
+
+
+
+
+
 
 </resources>
