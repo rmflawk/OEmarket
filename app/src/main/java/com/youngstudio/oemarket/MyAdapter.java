@@ -88,23 +88,27 @@ public class MyAdapter extends RecyclerView.Adapter {
                 public void onClick(View view) {
                     int position= getLayoutPosition();
                     Toast.makeText(context, ""+position, Toast.LENGTH_SHORT).show();
-//
-//                    //상세화면(DetailActivity)에 넘겨줄 데이터들
-//                    String name= datas.get(position).name;
-//                    int imgId= datas.get(position).img;
-//
-//                    //아이템의 상세 화면(DetailActivity)로 전환
-//                    Intent intent= new Intent(context, DetailActivity.class);
-//                    intent.putExtra("Name", name);
-//                    intent.putExtra("Img", imgId);
-//
-//                    //액티비티 전화시 효과(api21버전 이상에서만 가능)
-//                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-//                        ActivityOptions opts= ActivityOptions.makeSceneTransitionAnimation((MainActivity)context, new Pair<View, String>(ivIcon, "IMG"));
-//                        context.startActivity(intent, opts.toBundle());
-//                    }else{
-//                        context.startActivity(intent);
-//                    }
+
+                    //상세화면(DetailActivity)에 넘겨줄 데이터들
+                    String msg1= datas.get(position).msg1;
+                    String msg2= datas.get(position).msg2;
+                    String msg3= datas.get(position).msg3;
+                    int imgId= datas.get(position).img;
+
+                    //아이템의 상세 화면(DetailActivity)로 전환
+                    Intent intent= new Intent(context, ClickActivity.class);
+                    intent.putExtra("msg1", msg1);
+                    intent.putExtra("msg2", msg2);
+                    intent.putExtra("msg3", msg3);
+                    intent.putExtra("Img", imgId);
+
+                    //액티비티 전화시 효과(api21버전 이상에서만 가능)
+                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                        ActivityOptions opts= ActivityOptions.makeSceneTransitionAnimation((MainActivity)context, new Pair<View, String>(ivImg, "IMG"));
+                        context.startActivity(intent, opts.toBundle());
+                    }else{
+                        context.startActivity(intent);
+                    }
 
 
 
