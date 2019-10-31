@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         //액션바에 제목이 자동표시 되지 않도록
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        datas.add(new Item("망가진 우산 삽니다", "행당동 ~ 9월 18일","10,000원",R.drawable.one_ace));
         datas.add(new Item("삼성 c타입 충전기 케이블", "중구 약수동 ~ 3일전","무료나눔",R.drawable.bg_one01));
         datas.add(new Item("100만원으로 본체 2개삽니다", "성수1가제2동 ~ 7일전","115,000원",R.drawable.bg_one02));
         datas.add(new Item("커피머신기 패키지로 삽니다", "황학동 ~ 10월8일","",R.drawable.bg_one03));
@@ -63,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
         datas.add(new Item("모니터 어댑터 사요", "왕십리동 ~ 9월 20일","180,000원",R.drawable.bg_one07));
         datas.add(new Item("망가진 우산 삽니다", "행당동 ~ 9월 18일","10,000원",R.drawable.bg_one08));
 
+
+
         recyclerView= findViewById(R.id.recycler);
         adapter= new MyAdapter(datas, this);
         recyclerView.setAdapter(adapter);
@@ -71,9 +74,6 @@ public class MainActivity extends AppCompatActivity {
         DividerItemDecoration dividerItemDecoration =
                 new DividerItemDecoration(recyclerView.getContext(),new LinearLayoutManager(this).getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
-
-
-
 
 
         bnv= findViewById(R.id.bnv);

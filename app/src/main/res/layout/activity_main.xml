@@ -52,6 +52,9 @@
             android:orientation="vertical">
         </androidx.recyclerview.widget.RecyclerView>
 
+
+
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bnv"
             android:layout_width="match_parent"
@@ -62,6 +65,7 @@
             android:background="#ffffff"
             app:itemIconSize="32dp"
             app:labelVisibilityMode="unlabeled">
+
         </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 

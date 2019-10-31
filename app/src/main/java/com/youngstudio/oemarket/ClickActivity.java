@@ -2,6 +2,8 @@ package com.youngstudio.oemarket;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Build;
@@ -44,6 +46,8 @@ public class ClickActivity extends AppCompatActivity {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             iv.setTransitionName("IMG");
         }
+
+
 
 
     }//onCreate
