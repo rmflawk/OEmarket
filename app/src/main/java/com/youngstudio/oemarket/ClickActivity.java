@@ -1,10 +1,12 @@
 package com.youngstudio.oemarket;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -17,6 +19,12 @@ public class ClickActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_click);
+
+        Toolbar toolbar= findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        //액션바에 제목이 자동표시 되지 않도록
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         Intent intent= getIntent();
         String msg1= intent.getStringExtra("msg1");
@@ -38,7 +46,12 @@ public class ClickActivity extends AppCompatActivity {
         }
 
 
+    }//onCreate
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.optionclick, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
 

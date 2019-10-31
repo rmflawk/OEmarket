@@ -11,11 +11,11 @@
 
     <item android:id="@+id/bnv_cc"
         android:title="cc"
-        android:icon="@drawable/ic_ccc"/>
+        android:icon="@drawable/ic_main_bottom_a"/>
 
     <item android:id="@+id/bnv_dd"
         android:title="dd"
-        android:icon="@drawable/ic_ccc"/>
+        android:icon="@drawable/ic_main_bottom_a"/>
 
     <item android:id="@+id/bnv_ee"
         android:title="ee"

@@ -76,9 +76,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
         bnv= findViewById(R.id.bnv);
         bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

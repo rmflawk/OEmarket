@@ -9,19 +9,19 @@
     <item
         android:id="@+id/menu_a"
         android:title="camera"
-        android:icon="@drawable/ic_aa"
+        android:icon="@drawable/ic_main_a"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/menu_b"
         android:title="call"
-        android:icon="@drawable/ic_bb"
+        android:icon="@drawable/ic_main_b"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/menu_c"
         android:title="call"
-        android:icon="@drawable/ic_cc"
+        android:icon="@drawable/ic_main_c"
         app:showAsAction="ifRoom"/>
 
 

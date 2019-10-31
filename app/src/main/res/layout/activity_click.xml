@@ -8,21 +8,60 @@
     tools:context=".ClickActivity">
 
 
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/white">
 
-    <ImageView
-        android:id="@+id/iv"
-        android:layout_width="match_parent"
-        android:layout_height="330dp"
-        android:src="@drawable/one_ace"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="350dp">
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                android:src="@drawable/one_ace"/>
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:theme="@style/AppTheme.Appbar"
+                android:background="#11ffffff">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_click_c"/>
+
+                </androidx.appcompat.widget.Toolbar>
+
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+        </RelativeLayout>
+
+
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@color/white">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_marginTop="16dp"
@@ -34,7 +73,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/white">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -87,21 +127,28 @@
         android:textStyle="bold"
         android:textColor="#777777"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="10dp"
         android:textSize="16sp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:text="abcabc\nabcabc"
+        android:text="abcabc\nabcabcabcabc\nabcabcabcabc\nabcabcabcabc\nabcabc
+abcabc\nabcabcabcabc\nabcabcabcabc\nabcabcabcabc\nabcabc
+abcabc\nabcabcabcabc\nabcabcabcabc\nabcabcabcabc\nabcabc
+abcabc\nabcabcabcabc\nabcabcabcabc\nabcabcabcabc\nabcabc
+abcabc\nabcabcabcabc\nabcabcabcabc\nabcabcabcabc\nabcabc
+abcabc\nabcabcabcabc\nabcabcabcabc\nabcabcabcabc\nabcabc
+abcabc\nabcabcabcabc\nabcabcabcabc\nabcabcabcabc\nabcabc"
         android:layout_marginBottom="16dp"/>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@color/white">
 
         <TextView
             android:layout_width="wrap_content"
@@ -170,12 +217,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="이 게시글 신고하기"
-        android:textSize="12sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="#222222"
-        android:paddingRight="296dp"
+        android:paddingRight="300dp"
         android:layout_marginTop="8dp"
-        android:background="#ffffff"/>
+        android:background="@drawable/bg_botton"
+        style="@style/Widget.AppCompat.Button.Borderless"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -213,6 +261,6 @@
 
 </LinearLayout>
 
-
+</ScrollView>
 
 </androidx.drawerlayout.widget.DrawerLayout>
