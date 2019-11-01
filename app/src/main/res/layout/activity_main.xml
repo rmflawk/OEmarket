@@ -63,11 +63,8 @@
             app:itemTextColor="#777777"
             app:itemIconTint="#777777"
             android:background="#ffffff"
-            app:itemIconSize="32dp"
-            app:labelVisibilityMode="unlabeled">
-
+            app:itemIconSize="28dp">
         </com.google.android.material.bottomnavigation.BottomNavigationView>
-
 
 
     </LinearLayout>
