@@ -23,12 +23,12 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MyAdapter extends RecyclerView.Adapter {
+public class Page1Adapter extends RecyclerView.Adapter {
 
     ArrayList<Item> datas;
     Context context;
 
-    public MyAdapter(ArrayList<Item> datas, Context context) {
+    public Page1Adapter(ArrayList<Item> datas, Context context) {
         this.datas = datas;
         this.context = context;
     }
