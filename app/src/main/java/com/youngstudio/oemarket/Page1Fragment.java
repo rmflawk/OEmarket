@@ -29,7 +29,6 @@ import java.util.ArrayList;
 public class Page1Fragment extends Fragment {
 
 
-    BottomNavigationView bnv;
     RecyclerView recyclerView;
     Page1Adapter adapter;
     ArrayList<Item> datas = new ArrayList<>();
@@ -37,7 +36,7 @@ public class Page1Fragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
+        //setHasOptionsMenu(true);
 
 
         datas.add(new Item("망가진 우산 삽니다", "행당동 ~ 9월 18일", "10,000원", R.drawable.one_ace));
@@ -68,38 +67,39 @@ public class Page1Fragment extends Fragment {
                 new DividerItemDecoration(recyclerView.getContext(), new LinearLayoutManager(getActivity()).getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        bnv = view.findViewById(R.id.bnv);
-        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                //원래는 보통 아이템을 클릭할 때마다
-                //Fragment는 변경하는 것이 일반적임.
-                switch (item.getItemId()) {
-                    case R.id.bnv_aa:
-                        Toast.makeText(getActivity(), "aa", Toast.LENGTH_SHORT).show();
-                        //findViewById(R.id.recycler).setBackgroundColor(Color.CYAN);
-                        break;
-                    case R.id.bnv_bb:
-                        Toast.makeText(getActivity(), "bb", Toast.LENGTH_SHORT).show();
-                        //findViewById(R.id.recycler).setBackgroundColor(Color.MAGENTA);
-                        break;
-                    case R.id.bnv_cc:
-                        Toast.makeText(getActivity(), "cc", Toast.LENGTH_SHORT).show();
-                        //findViewById(R.id.recycler).setBackgroundColor(Color.GREEN);
-                        break;
-                    case R.id.bnv_dd:
-                        Toast.makeText(getActivity(), "dd", Toast.LENGTH_SHORT).show();
-                        //findViewById(R.id.recycler).setBackgroundColor(Color.BLACK);
-                        break;
-                }
-                //리턴값이 true가 아니면 동작하지 않음
-                return true;
-            }
-        });
+//        bnv = view.findViewById(R.id.bnv);
+//        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//
+//                //원래는 보통 아이템을 클릭할 때마다
+//                //Fragment는 변경하는 것이 일반적임.
+//                switch (item.getItemId()) {
+//                    case R.id.bnv_aa:
+//                        Toast.makeText(getActivity(), "aa", Toast.LENGTH_SHORT).show();
+//                        //findViewById(R.id.recycler).setBackgroundColor(Color.CYAN);
+//                        break;
+//                    case R.id.bnv_bb:
+//                        Toast.makeText(getActivity(), "bb", Toast.LENGTH_SHORT).show();
+//                        //findViewById(R.id.recycler).setBackgroundColor(Color.MAGENTA);
+//                        break;
+//                    case R.id.bnv_cc:
+//                        Toast.makeText(getActivity(), "cc", Toast.LENGTH_SHORT).show();
+//                        //findViewById(R.id.recycler).setBackgroundColor(Color.GREEN);
+//                        break;
+//                    case R.id.bnv_dd:
+//                        Toast.makeText(getActivity(), "dd", Toast.LENGTH_SHORT).show();
+//                        //findViewById(R.id.recycler).setBackgroundColor(Color.BLACK);
+//                        break;
+//                }
+//                //리턴값이 true가 아니면 동작하지 않음
+//                return true;
+//            }
+//        });
 
         return view;
     }
+}
 
 
 //    //위 onCreateView가 실행된 후 자동 실행되는 메소드
@@ -109,11 +109,11 @@ public class Page1Fragment extends Fragment {
 //
 //    }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.option, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        inflater.inflate(R.menu.option, menu);
+//        super.onCreateOptionsMenu(menu, inflater);
+//    }
 
 
 
@@ -130,7 +130,7 @@ public class Page1Fragment extends Fragment {
 //    }
 
 
-}
+
 
 
 

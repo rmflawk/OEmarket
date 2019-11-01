@@ -10,6 +10,8 @@ public class MainAdapter extends FragmentPagerAdapter {
 
     Fragment[] fragments= new Fragment[3];
 
+
+
     public MainAdapter(@NonNull FragmentManager fm) {
 
         super(fm);

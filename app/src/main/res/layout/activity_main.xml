@@ -41,8 +41,6 @@
             </LinearLayout>
 
 
-
-
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -50,11 +48,33 @@
 
 
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/pager"
+
+    <RelativeLayout
+        android:id="@+id/relativelayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </androidx.viewpager.widget.ViewPager>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </androidx.viewpager.widget.ViewPager>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/bottom"
+            app:itemTextColor="#777777"
+            app:itemIconTint="#777777"
+            android:background="#ffffff"
+            app:itemIconSize="28dp"
+            android:layout_alignParentBottom="true">
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+
+    </RelativeLayout>
 
 
 

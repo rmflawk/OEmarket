@@ -46,12 +46,12 @@ public class Page3Fragment extends Fragment {
         listView= view.findViewById(R.id.listview);
 
 
-        //리스트뷰의 아이템을 클릭하면...
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Toast.makeText(getActivity(), datas.get(position), Toast.LENGTH_SHORT).show();
-            }
-        });
+//        //리스트뷰의 아이템을 클릭하면...
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+//                Toast.makeText(getActivity(), datas.get(position), Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 }
