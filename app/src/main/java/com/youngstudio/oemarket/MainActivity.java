@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,11 +22,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     ViewPager pager;
     MainAdapter adapter;
+
+    List<Fragment> listFragment;
+    BottomNavigationView navigationView;
 
 
     FragmentManager fragmentManager= getSupportFragmentManager();
@@ -43,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //액션바에 제목이 자동표시 되지 않도록
         //getSupportActionBar().setDisplayShowTitleEnabled(false);
+        //initView();
 
         pager= findViewById(R.id.pager);
         adapter= new MainAdapter(getSupportFragmentManager());
@@ -56,7 +62,62 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     }
+
+//    public void initView(){
+//        pager= (ViewPager)findViewById(R.id.pager);
+//        navigationView= (BottomNavigationView)findViewById(R.id.bnv);
+//
+//        listFragment= new ArrayList<>();
+//        listFragment.add(new Page1Fragment());
+//        listFragment.add(new Page2Fragment());
+//        listFragment.add(new Page3Fragment());
+//        adapter= new MainAdapter(getSupportFragmentManager(),this,listFragment);
+//        pager.setAdapter(adapter);
+//
+//        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//
+//                switch (item.getItemId()){
+//                    case R.id.bnv_aa:
+//                        pager.setCurrentItem(0);
+//                        return  true;
+//                    case R.id.bnv_bb:
+//                        pager.setCurrentItem(1);
+//                        return  true;
+//                    case R.id.bnv_cc:
+//                        pager.setCurrentItem(2);
+//                        return  true;
+//                    default:
+//                        break;
+//                }
+//
+//                return false;
+//            }
+//        });
+//
+//        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                navigationView.getMenu().getItem(position).setChecked(true);
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//
+//            }
+//        });
+//
+//    }
+
+
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener {
         @Override
