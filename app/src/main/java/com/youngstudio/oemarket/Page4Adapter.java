@@ -19,12 +19,12 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class Page1Adapter extends RecyclerView.Adapter {
+public class Page4Adapter  extends RecyclerView.Adapter {
 
     ArrayList<Item> datas;
     Context context;
 
-    public Page1Adapter(ArrayList<Item> datas, Context context) {
+    public Page4Adapter(ArrayList<Item> datas, Context context) {
         this.datas = datas;
         this.context = context;
     }
@@ -32,19 +32,17 @@ public class Page1Adapter extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         LayoutInflater inflater= LayoutInflater.from(context);
-        View itemView= inflater.inflate(R.layout.recycler_page1, parent, false);
+        View itemView= inflater.inflate(R.layout.recycler_page4, parent, false);
 
         VH vh= new VH(itemView);
         return vh;
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
-        VH vh= (VH)holder;
+        Page4Adapter.VH vh= (Page4Adapter.VH)holder;
 
         Item item= datas.get(position);
 
@@ -73,10 +71,10 @@ public class Page1Adapter extends RecyclerView.Adapter {
         public VH(@NonNull View itemView) {
             super(itemView);
 
-            ivImg= itemView.findViewById(R.id.page1_iv_img);
-            tvMsg1= itemView.findViewById(R.id.page1_tv_msg1);
-            tvMsg2= itemView.findViewById(R.id.page1_tv_msg2);
-            tvMsg3= itemView.findViewById(R.id.page1_tv_msg3);
+            ivImg= itemView.findViewById(R.id.page4_iv_img);
+            tvMsg1= itemView.findViewById(R.id.page4_tv_msg1);
+            tvMsg2= itemView.findViewById(R.id.page4_tv_msg2);
+            tvMsg3= itemView.findViewById(R.id.page4_tv_msg3);
 
             //아이템뷰 클릭리스너
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -85,26 +83,26 @@ public class Page1Adapter extends RecyclerView.Adapter {
                     int position= getLayoutPosition();
                     Toast.makeText(context, ""+position, Toast.LENGTH_SHORT).show();
 
-                    //상세화면(DetailActivity)에 넘겨줄 데이터들
+                    //상세화면에 넘겨줄 데이터들
                     String msg1= datas.get(position).msg1;
                     String msg2= datas.get(position).msg2;
                     String msg3= datas.get(position).msg3;
                     int imgId= datas.get(position).img;
 
-                    //아이템의 상세 화면(DetailActivity)로 전환
-                    Intent intent= new Intent(context, ClickActivity.class);
-                    intent.putExtra("msg1", msg1);
-                    intent.putExtra("msg2", msg2);
-                    intent.putExtra("msg3", msg3);
-                    intent.putExtra("Img", imgId);
+                    //채팅 상세 화면으로 전환
+                    Intent intent= new Intent();
+                    //intent.putExtra("msg1", msg1);
+                    //intent.putExtra("msg2", msg2);
+                    //intent.putExtra("msg3", msg3);
+                    //intent.putExtra("Img", imgId);
 
                     //액티비티 전화시 효과(api21버전 이상에서만 가능)
-                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-                        ActivityOptions opts= ActivityOptions.makeSceneTransitionAnimation((MainActivity)context, new Pair<View, String>(ivImg, "IMG"));
-                        context.startActivity(intent, opts.toBundle());
-                    }else{
-                        context.startActivity(intent);
-                    }
+//                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+//                        ActivityOptions opts= ActivityOptions.makeSceneTransitionAnimation((MainActivity)context, new Pair<View, String>(ivImg, "IMG"));
+//                        context.startActivity(intent, opts.toBundle());
+//                    }else{
+//                        context.startActivity(intent);
+//                    }
 
 
 
@@ -115,8 +113,3 @@ public class Page1Adapter extends RecyclerView.Adapter {
     }
 
 }
-
-
-
-
-

@@ -61,7 +61,7 @@ public class Page1Fragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_page1, container, false);
 
-        recyclerView = view.findViewById(R.id.recycler);
+        recyclerView = view.findViewById(R.id.recycler_page1);
         adapter = new Page1Adapter(datas, getActivity());
         recyclerView.setAdapter(adapter);
 

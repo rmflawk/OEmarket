@@ -12,45 +12,27 @@ import java.util.List;
 
 public class MainAdapter extends FragmentPagerAdapter {
 
-    Fragment[] fragments= new Fragment[3];
+    Fragment[] fragments= new Fragment[5];
 
-    Context context;
-    List<Fragment> listFragment;
-
-
-//    public MainAdapter(FragmentManager fm, Context context, List<Fragment> listFragment) {
-//
-//        super(fm);
-//
-//        this.context = context;
-//        this.listFragment = listFragment;
-//
-//
-//        fragments[0]= new Page1Fragment();
-//        fragments[1]= new Page2Fragment();
-//        fragments[2]= new Page3Fragment();
-//    }
 
     public MainAdapter(FragmentManager supportFragmentManager) {
         super(supportFragmentManager);
         fragments[0]= new Page1Fragment();
         fragments[1]= new Page2Fragment();
         fragments[2]= new Page3Fragment();
+        fragments[3]= new Page4Fragment();
+        fragments[4]= new Page5Fragment();
     }
 
 
     @NonNull
     @Override
     public Fragment getItem(int position) {
-
-        //return  listFragment.get(position);
         return fragments[position];
     }
 
     @Override
     public int getCount() {
-
-        //return  listFragment.size();
         return fragments.length;
     }
 

@@ -35,28 +35,10 @@ public class MainActivity extends AppCompatActivity {
     ViewPager pager;
     MainAdapter adapter;
 
-    List<Fragment> listFragment;
-    BottomNavigationView navigationView;
-
-    FragmentManager fragmentManager = getSupportFragmentManager();
-    Page1Fragment page1Fragment = new Page1Fragment();
-    Page2Fragment page2Fragment = new Page2Fragment();
-    Page3Fragment page3Fragment = new Page3Fragment();
-
-
-
-
+    public static BottomNavigationView navigationView;
     public static TextView main_tv;
     public static ImageView main_iv;
     public static AppBarLayout appBarLayout;
-
-//    public void tv(String tv){
-//        main_tv.setText(tv);
-//    }
-//
-//    public void iv(){
-//        main_iv.setVisibility(View.GONE);
-//    }
 
 
     @Override
@@ -71,12 +53,10 @@ public class MainActivity extends AppCompatActivity {
         main_iv= findViewById(R.id.main_iv);
         appBarLayout= findViewById(R.id.appbarlayout);
 
-
-
+        navigationView= findViewById(R.id.bnv);
 
         //액션바에 제목이 자동표시 되지 않도록
         //getSupportActionBar().setDisplayShowTitleEnabled(false);
-        //initView();
 
         pager = findViewById(R.id.pager);
         adapter = new MainAdapter(getSupportFragmentManager());
@@ -105,34 +85,32 @@ public class MainActivity extends AppCompatActivity {
                         MainActivity.main_tv.setText("도선동");
                         MainActivity.main_iv.setVisibility(View.VISIBLE);
                         MainActivity.appBarLayout.setVisibility(View.VISIBLE);
-                        //transaction.replace(R.id.relativelayout, page1Fragment).commitAllowingStateLoss();
-                        //pager.setCurrentItem(0,true);
-
-                        //navigationView.getMenu().getItem(R.id.bnv_aa).setChecked(true);
+                        navigationView.getMenu().getItem(position).setChecked(true);
                         break;
 
                     case 1:
                         MainActivity.main_tv.setText("카테고리");
                         MainActivity.main_iv.setVisibility(View.GONE);
                         MainActivity.appBarLayout.setVisibility(View.VISIBLE);
-                        //transaction.replace(R.id.relativelayout, page2Fragment).commitAllowingStateLoss();
-                        //pager.setCurrentItem(1,true);
-
-                        //navigationView.getMenu().getItem(position).setChecked(true);
-
+                        navigationView.getMenu().getItem(position).setChecked(true);
                         break;
+
                     case 2:
-                        MainActivity.main_tv.setText("홍익동");
                         MainActivity.main_iv.setVisibility(View.GONE);
                         MainActivity.appBarLayout.setVisibility(View.GONE);
-                        //transaction.replace(R.id.relativelayout, page3Fragment).commitAllowingStateLoss();
-                        //pager.setCurrentItem(2,true);
-
-                        //navigationView.getMenu().getItem(position).setChecked(true);
+                        navigationView.getMenu().getItem(position).setChecked(true);
+                        break;
+                    case 3:
+                        MainActivity.main_iv.setVisibility(View.GONE);
+                        MainActivity.appBarLayout.setVisibility(View.GONE);
+                        navigationView.getMenu().getItem(position).setChecked(true);
+                        break;
+                    case 4:
+                        MainActivity.main_iv.setVisibility(View.GONE);
+                        MainActivity.appBarLayout.setVisibility(View.GONE);
+                        navigationView.getMenu().getItem(position).setChecked(true);
                         break;
                 }
-
-
 
             }
 
@@ -143,10 +121,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
     }//onCreate
-
 
 
 
@@ -154,7 +129,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             //FragmentTransaction transaction = fragmentManager.beginTransaction();
-
             switch (menuItem.getItemId()) {
                 case R.id.bnv_aa:
                     MainActivity.main_tv.setText("도선동");
@@ -173,13 +147,20 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.bnv_cc:
-                    MainActivity.main_tv.setText("홍익동");
                     MainActivity.main_iv.setVisibility(View.GONE);
                     MainActivity.appBarLayout.setVisibility(View.GONE);
-                    //transaction.replace(R.id.relativelayout, page3Fragment).commitAllowingStateLoss();
                     pager.setCurrentItem(2,true);
                     break;
-
+                case R.id.bnv_dd:
+                    MainActivity.main_iv.setVisibility(View.GONE);
+                    MainActivity.appBarLayout.setVisibility(View.GONE);
+                    pager.setCurrentItem(3,true);
+                    break;
+                case R.id.bnv_ee:
+                    MainActivity.main_iv.setVisibility(View.GONE);
+                    MainActivity.appBarLayout.setVisibility(View.GONE);
+                    pager.setCurrentItem(4,true);
+                    break;
             }
             return true;
         }
@@ -192,9 +173,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-
-
-}
+}//MainActivity.class
 
 
 
