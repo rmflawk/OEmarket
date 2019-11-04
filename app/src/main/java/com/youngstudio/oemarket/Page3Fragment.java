@@ -3,6 +3,9 @@ package com.youngstudio.oemarket;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -17,43 +20,53 @@ import java.util.ArrayList;
 
 public class Page3Fragment extends Fragment {
 
-    ListView listView;
-
-    ArrayList<String> datas= new ArrayList<>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //대량의 데이터 추가하기
-        datas.add("aaa");
-        datas.add("bbb");
-        datas.add("ccc");
     }
-
-
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+        setHasOptionsMenu(true);
         return inflater.inflate(R.layout.fragment_page3, container, false);
     }
 
-    //위 onCreateView가 실행된 후 자동 실행되는 메소드
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        listView= view.findViewById(R.id.listview);
-
-
-//        //리스트뷰의 아이템을 클릭하면...
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-//                Toast.makeText(getActivity(), datas.get(position), Toast.LENGTH_SHORT).show();
-//            }
-//        });
+    public void onResume() {
+        super.onResume();
+        getActivity().invalidateOptionsMenu();
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.option2, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_aa:
+                Toast.makeText(getActivity(), "menu aa", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    //    //위 onCreateView가 실행된 후 자동 실행되는 메소드
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+////        //리스트뷰의 아이템을 클릭하면...
+////        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+////            @Override
+////            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+////                Toast.makeText(getActivity(), datas.get(position), Toast.LENGTH_SHORT).show();
+////            }
+////        });
+//    }
+
 }

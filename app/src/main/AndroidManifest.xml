@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Page1Fragment"></activity>
+
         <activity
             android:name=".ClickActivity"
             android:theme="@style/AppTheme.NoActionBar" />

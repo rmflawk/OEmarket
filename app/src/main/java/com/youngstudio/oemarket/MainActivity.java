@@ -11,13 +11,19 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -32,11 +38,25 @@ public class MainActivity extends AppCompatActivity {
     List<Fragment> listFragment;
     BottomNavigationView navigationView;
 
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    Page1Fragment page1Fragment = new Page1Fragment();
+    Page2Fragment page2Fragment = new Page2Fragment();
+    Page3Fragment page3Fragment = new Page3Fragment();
 
-    FragmentManager fragmentManager= getSupportFragmentManager();
-    Page1Fragment page1Fragment= new Page1Fragment();
-    Page2Fragment page2Fragment= new Page2Fragment();
-    Page3Fragment page3Fragment= new Page3Fragment();
+
+
+
+    public static TextView main_tv;
+    public static ImageView main_iv;
+    public static AppBarLayout appBarLayout;
+
+//    public void tv(String tv){
+//        main_tv.setText(tv);
+//    }
+//
+//    public void iv(){
+//        main_iv.setVisibility(View.GONE);
+//    }
 
 
     @Override
@@ -44,26 +64,139 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar= findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        main_tv= findViewById(R.id.main_tv);
+        main_iv= findViewById(R.id.main_iv);
+        appBarLayout= findViewById(R.id.appbarlayout);
+
+
+
+
         //액션바에 제목이 자동표시 되지 않도록
         //getSupportActionBar().setDisplayShowTitleEnabled(false);
         //initView();
 
-        pager= findViewById(R.id.pager);
-        adapter= new MainAdapter(getSupportFragmentManager());
+        pager = findViewById(R.id.pager);
+        adapter = new MainAdapter(getSupportFragmentManager());
         pager.setAdapter(adapter);
 
-        FragmentTransaction transaction= fragmentManager.beginTransaction();
-        transaction.replace(R.id.relativelayout,page1Fragment).commitAllowingStateLoss();
+        //FragmentTransaction transaction= fragmentManager.beginTransaction();
+        //transaction.replace(R.id.relativelayout,page1Fragment).commitAllowingStateLoss();
 
-        BottomNavigationView bottomNavigationView= findViewById(R.id.bnv);
+        final BottomNavigationView bottomNavigationView = findViewById(R.id.bnv);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
 
+        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener()
+        {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels)
+            {
+                //Toast.makeText(MainActivity.this, position, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onPageSelected(int position)
+            {
+                //navigationView.getMenu().getItem(position).setChecked(true);
+                switch (position) {
+                    case 0:
+                        MainActivity.main_tv.setText("도선동");
+                        MainActivity.main_iv.setVisibility(View.VISIBLE);
+                        MainActivity.appBarLayout.setVisibility(View.VISIBLE);
+                        //transaction.replace(R.id.relativelayout, page1Fragment).commitAllowingStateLoss();
+                        //pager.setCurrentItem(0,true);
+
+                        //navigationView.getMenu().getItem(R.id.bnv_aa).setChecked(true);
+                        break;
+
+                    case 1:
+                        MainActivity.main_tv.setText("카테고리");
+                        MainActivity.main_iv.setVisibility(View.GONE);
+                        MainActivity.appBarLayout.setVisibility(View.VISIBLE);
+                        //transaction.replace(R.id.relativelayout, page2Fragment).commitAllowingStateLoss();
+                        //pager.setCurrentItem(1,true);
+
+                        //navigationView.getMenu().getItem(position).setChecked(true);
+
+                        break;
+                    case 2:
+                        MainActivity.main_tv.setText("홍익동");
+                        MainActivity.main_iv.setVisibility(View.GONE);
+                        MainActivity.appBarLayout.setVisibility(View.GONE);
+                        //transaction.replace(R.id.relativelayout, page3Fragment).commitAllowingStateLoss();
+                        //pager.setCurrentItem(2,true);
+
+                        //navigationView.getMenu().getItem(position).setChecked(true);
+                        break;
+                }
 
 
 
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state)
+            {
+
+            }
+        });
+
+
+
+    }//onCreate
+
+
+
+
+    class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            //FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+            switch (menuItem.getItemId()) {
+                case R.id.bnv_aa:
+                    MainActivity.main_tv.setText("도선동");
+                    MainActivity.main_iv.setVisibility(View.VISIBLE);
+                    MainActivity.appBarLayout.setVisibility(View.VISIBLE);
+                    //transaction.replace(R.id.relativelayout, page1Fragment).commitAllowingStateLoss();
+                    pager.setCurrentItem(0,true);
+                    break;
+
+                case R.id.bnv_bb:
+                    MainActivity.main_tv.setText("카테고리");
+                    MainActivity.main_iv.setVisibility(View.GONE);
+                    MainActivity.appBarLayout.setVisibility(View.VISIBLE);
+                    //transaction.replace(R.id.relativelayout, page2Fragment).commitAllowingStateLoss();
+                    pager.setCurrentItem(1,true);
+                    break;
+
+                case R.id.bnv_cc:
+                    MainActivity.main_tv.setText("홍익동");
+                    MainActivity.main_iv.setVisibility(View.GONE);
+                    MainActivity.appBarLayout.setVisibility(View.GONE);
+                    //transaction.replace(R.id.relativelayout, page3Fragment).commitAllowingStateLoss();
+                    pager.setCurrentItem(2,true);
+                    break;
+
+            }
+            return true;
+        }
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.option, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+
+}
+
+
 
 //    public void initView(){
 //        pager= (ViewPager)findViewById(R.id.pager);
@@ -117,39 +250,6 @@ public class MainActivity extends AppCompatActivity {
 //
 //    }
 
-
-
-    class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-            FragmentTransaction transaction= fragmentManager.beginTransaction();
-            switch (menuItem.getItemId()){
-                case R.id.bnv_aa:
-                    transaction.replace(R.id.relativelayout,page1Fragment).commitAllowingStateLoss();
-                    break;
-                case R.id.bnv_bb:
-                    transaction.replace(R.id.relativelayout,page2Fragment).commitAllowingStateLoss();
-                    break;
-                case R.id.bnv_cc:
-                    transaction.replace(R.id.relativelayout,page3Fragment).commitAllowingStateLoss();
-                    break;
-
-            }
-            return true;
-        }
-    }
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.option, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-
-
-
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        MenuInflater inflater = getMenuInflater();
@@ -163,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
 
-}
+
 
 
 

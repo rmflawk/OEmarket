@@ -36,7 +36,6 @@ public class Page1Fragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setHasOptionsMenu(true);
 
 
         datas.add(new Item("망가진 우산 삽니다", "행당동 ~ 9월 18일", "10,000원", R.drawable.one_ace));
@@ -50,11 +49,15 @@ public class Page1Fragment extends Fragment {
         datas.add(new Item("망가진 우산 삽니다", "행당동 ~ 9월 18일", "10,000원", R.drawable.bg_one08));
 
 
+
+
     }
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
 
         View view = inflater.inflate(R.layout.fragment_page1, container, false);
 
@@ -66,6 +69,14 @@ public class Page1Fragment extends Fragment {
         DividerItemDecoration dividerItemDecoration =
                 new DividerItemDecoration(recyclerView.getContext(), new LinearLayoutManager(getActivity()).getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
+
+        //setHasOptionsMenu(true);
+
+
+        return view;
+    }
+
+}//Page1Fragmane
 
 //        bnv = view.findViewById(R.id.bnv);
 //        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -97,9 +108,6 @@ public class Page1Fragment extends Fragment {
 //            }
 //        });
 
-        return view;
-    }
-}
 
 
 //    //위 onCreateView가 실행된 후 자동 실행되는 메소드
@@ -110,10 +118,34 @@ public class Page1Fragment extends Fragment {
 //    }
 
 //    @Override
-//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-//        inflater.inflate(R.menu.option, menu);
-//        super.onCreateOptionsMenu(menu, inflater);
+//    public void onResume() {
+//        super.onResume();
+//        getActivity().invalidateOptionsMenu();
 //    }
+//
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        super.onCreateOptionsMenu(menu, inflater);
+//        inflater.inflate(R.menu.option, menu);
+//
+//    }
+
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        switch (item.getItemId()){
+//            case R.id.menu_a:
+//                Toast.makeText(getActivity(), "menu aa", Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.menu_b:
+//                Toast.makeText(getActivity(), "menu bb", Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.menu_c:
+//                Toast.makeText(getActivity(), "menu cc", Toast.LENGTH_SHORT).show();
+//                break;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
+
 
 
 
