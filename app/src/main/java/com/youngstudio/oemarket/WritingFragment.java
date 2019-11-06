@@ -48,6 +48,7 @@ public class WritingFragment extends Fragment {
                 Toast.makeText(getActivity(), "menu aa", Toast.LENGTH_SHORT).show();
                 break;
         }
+        
         return super.onOptionsItemSelected(item);
     }
 
