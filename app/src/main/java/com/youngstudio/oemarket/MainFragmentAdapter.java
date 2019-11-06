@@ -34,7 +34,7 @@ public class MainFragmentAdapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater inflater= LayoutInflater.from(context);
-        View itemView= inflater.inflate(R.layout.recycler_main, parent, false);
+        View itemView= inflater.inflate(R.layout.recycler_item_main, parent, false);
 
         VH vh= new VH(itemView);
         return vh;

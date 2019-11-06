@@ -46,7 +46,7 @@ public class ChattingFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_chatting, container, false);
 
-        recyclerView = view.findViewById(R.id.recycler_page4);
+        recyclerView = view.findViewById(R.id.recycler_chatting);
         adapter = new ChattingAdapter(datas, getActivity());
         recyclerView.setAdapter(adapter);
 

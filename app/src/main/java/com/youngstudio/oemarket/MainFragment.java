@@ -45,7 +45,7 @@ public class MainFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
-        recyclerView = view.findViewById(R.id.recycler_page1);
+        recyclerView = view.findViewById(R.id.recycler_main);
         adapter = new MainFragmentAdapter(datas, getActivity());
         recyclerView.setAdapter(adapter);
 

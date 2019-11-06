@@ -13,7 +13,7 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_page1"
+            android:id="@+id/recycler_main"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="500dp"

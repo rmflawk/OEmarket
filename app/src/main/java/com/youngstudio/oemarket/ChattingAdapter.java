@@ -30,7 +30,7 @@ public class ChattingAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater= LayoutInflater.from(context);
-        View itemView= inflater.inflate(R.layout.recycler_chatting, parent, false);
+        View itemView= inflater.inflate(R.layout.recycler_item_chatting, parent, false);
 
         VH vh= new VH(itemView);
         return vh;
