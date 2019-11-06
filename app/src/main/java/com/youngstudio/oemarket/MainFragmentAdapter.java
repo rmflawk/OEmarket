@@ -19,12 +19,12 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class Page1Adapter extends RecyclerView.Adapter {
+public class MainFragmentAdapter extends RecyclerView.Adapter {
 
     ArrayList<Item> datas;
     Context context;
 
-    public Page1Adapter(ArrayList<Item> datas, Context context) {
+    public MainFragmentAdapter(ArrayList<Item> datas, Context context) {
         this.datas = datas;
         this.context = context;
     }
@@ -34,7 +34,7 @@ public class Page1Adapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater inflater= LayoutInflater.from(context);
-        View itemView= inflater.inflate(R.layout.recycler_page1, parent, false);
+        View itemView= inflater.inflate(R.layout.recycler_main, parent, false);
 
         VH vh= new VH(itemView);
         return vh;

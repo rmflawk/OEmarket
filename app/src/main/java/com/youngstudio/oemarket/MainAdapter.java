@@ -17,11 +17,11 @@ public class MainAdapter extends FragmentPagerAdapter {
 
     public MainAdapter(FragmentManager supportFragmentManager) {
         super(supportFragmentManager);
-        fragments[0]= new Page1Fragment();
-        fragments[1]= new Page2Fragment();
-        fragments[2]= new Page3Fragment();
-        fragments[3]= new Page4Fragment();
-        fragments[4]= new Page5Fragment();
+        fragments[0]= new MainFragment();
+        fragments[1]= new KategorieFragment();
+        fragments[2]= new WritingFragment();
+        fragments[3]= new ChattingFragment();
+        fragments[4]= new MyPageFragment();
     }
 
 

@@ -1,10 +1,7 @@
 package com.youngstudio.oemarket;
 
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +16,12 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class Page4Adapter  extends RecyclerView.Adapter {
+public class ChattingAdapter extends RecyclerView.Adapter {
 
     ArrayList<Item> datas;
     Context context;
 
-    public Page4Adapter(ArrayList<Item> datas, Context context) {
+    public ChattingAdapter(ArrayList<Item> datas, Context context) {
         this.datas = datas;
         this.context = context;
     }
@@ -33,7 +30,7 @@ public class Page4Adapter  extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater= LayoutInflater.from(context);
-        View itemView= inflater.inflate(R.layout.recycler_page4, parent, false);
+        View itemView= inflater.inflate(R.layout.recycler_chatting, parent, false);
 
         VH vh= new VH(itemView);
         return vh;
@@ -42,7 +39,7 @@ public class Page4Adapter  extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
-        Page4Adapter.VH vh= (Page4Adapter.VH)holder;
+        ChattingAdapter.VH vh= (ChattingAdapter.VH)holder;
 
         Item item= datas.get(position);
 

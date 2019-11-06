@@ -14,10 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class Page4Fragment  extends Fragment {
+public class ChattingFragment extends Fragment {
 
     RecyclerView recyclerView;
-    Page4Adapter adapter;
+    ChattingAdapter adapter;
     ArrayList<Item> datas = new ArrayList<>();
 
     @Override
@@ -44,10 +44,10 @@ public class Page4Fragment  extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
-        View view = inflater.inflate(R.layout.fragment_page4, container, false);
+        View view = inflater.inflate(R.layout.fragment_chatting, container, false);
 
         recyclerView = view.findViewById(R.id.recycler_page4);
-        adapter = new Page4Adapter(datas, getActivity());
+        adapter = new ChattingAdapter(datas, getActivity());
         recyclerView.setAdapter(adapter);
 
         //리사이클러뷰 구분선 추가

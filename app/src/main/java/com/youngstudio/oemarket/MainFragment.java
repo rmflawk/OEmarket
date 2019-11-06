@@ -1,36 +1,24 @@
 package com.youngstudio.oemarket;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ActionBar;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.SearchView;
-import android.widget.Toast;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
-
 import java.util.ArrayList;
 
-public class Page1Fragment extends Fragment {
+public class MainFragment extends Fragment {
 
 
     RecyclerView recyclerView;
-    Page1Adapter adapter;
+    MainFragmentAdapter adapter;
     ArrayList<Item> datas = new ArrayList<>();
 
     @Override
@@ -48,21 +36,17 @@ public class Page1Fragment extends Fragment {
         datas.add(new Item("모니터 어댑터 사요", "왕십리동 ~ 9월 20일", "180,000원", R.drawable.bg_one07));
         datas.add(new Item("망가진 우산 삽니다", "행당동 ~ 9월 18일", "10,000원", R.drawable.bg_one08));
 
-
-
-
     }
-
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
-        View view = inflater.inflate(R.layout.fragment_page1, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         recyclerView = view.findViewById(R.id.recycler_page1);
-        adapter = new Page1Adapter(datas, getActivity());
+        adapter = new MainFragmentAdapter(datas, getActivity());
         recyclerView.setAdapter(adapter);
 
         //리사이클러뷰 구분선 추가
