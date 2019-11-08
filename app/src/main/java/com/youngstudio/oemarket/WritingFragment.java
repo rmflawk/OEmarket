@@ -68,42 +68,42 @@ public class WritingFragment extends Fragment {
         clickBtn= view.findViewById(R.id.clickBtn);
         btnCamara= view.findViewById(R.id.writing_iv_camera);
 
-        clickBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //서버로 보낼 데이터
-                String title= writing_ev_title.getText().toString();
-                String mainMsg= writing_et_mainmsg.getText().toString();
-
-                //안드로이드에서 보낼 데이터를 받을 php서버주소
-                String serverUrl="http://rmflawkdk.dothome.co.kr/Android/insertDB.php";
-
-                //파일전송요청 객체 생성[결과를 String으로 받음]
-                SimpleMultiPartRequest smpr= new SimpleMultiPartRequest(Request.Method.POST, serverUrl, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        new AlertDialog.Builder(getActivity()).setMessage("응답:"+response).create().show();
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getActivity(), "ERROR", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-                //요청객체에 보낼 데이터를 추가
-                smpr.addStringParam("name", title);
-                smpr.addStringParam("msg", mainMsg);
-                //이미지파일 추가
-                smpr.addFile("img", imgPath);
-
-                //요청객체를 서버로 보낼 우체통같은 객체 생성
-                RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
-                requestQueue.add(smpr);
-
-
-            }
-        });
+//        clickBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //서버로 보낼 데이터
+//                String title= writing_ev_title.getText().toString();
+//                String mainMsg= writing_et_mainmsg.getText().toString();
+//
+//                //안드로이드에서 보낼 데이터를 받을 php서버주소
+//                String serverUrl="http://rmflawkdk.dothome.co.kr/Android/insertDB.php";
+//
+//                //파일전송요청 객체 생성[결과를 String으로 받음]
+//                SimpleMultiPartRequest smpr= new SimpleMultiPartRequest(Request.Method.POST, serverUrl, new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        new AlertDialog.Builder(getActivity()).setMessage("응답:"+response).create().show();
+//                    }
+//                }, new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        Toast.makeText(getActivity(), "ERROR", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//                //요청객체에 보낼 데이터를 추가
+//                smpr.addStringParam("name", title);
+//                smpr.addStringParam("msg", mainMsg);
+//                //이미지파일 추가
+//                smpr.addFile("img", imgPath);
+//
+//                //요청객체를 서버로 보낼 우체통같은 객체 생성
+//                RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
+//                requestQueue.add(smpr);
+//
+//
+//            }
+//        });
 
         btnCamara.setOnClickListener(new View.OnClickListener() {
             @Override
