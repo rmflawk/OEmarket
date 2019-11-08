@@ -48,9 +48,9 @@ public class MainFragmentAdapter extends RecyclerView.Adapter {
 
         Item item= datas.get(position);
 
-        vh.tvMsg1.setText(item.msg1);
-        vh.tvMsg2.setText(item.msg2);
-        vh.tvMsg3.setText(item.msg3);
+        vh.tvMsg1.setText(item.title);
+        vh.tvMsg2.setText(item.date);
+        vh.tvMsg3.setText(item.mainmsg);
 
         //이미지가 너무크면 OOM(Out Of Memory)에러 발생
         //이를 방지하기 위해 Library(Picasso, Glide) 사용
@@ -86,9 +86,9 @@ public class MainFragmentAdapter extends RecyclerView.Adapter {
                     Toast.makeText(context, ""+position, Toast.LENGTH_SHORT).show();
 
                     //상세화면(DetailActivity)에 넘겨줄 데이터들
-                    String msg1= datas.get(position).msg1;
-                    String msg2= datas.get(position).msg2;
-                    String msg3= datas.get(position).msg3;
+                    String msg1= datas.get(position).title;
+                    String msg2= datas.get(position).date;
+                    String msg3= datas.get(position).mainmsg;
                     int imgId= datas.get(position).img;
 
                     //아이템의 상세 화면(DetailActivity)로 전환
