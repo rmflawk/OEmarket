@@ -2,41 +2,40 @@ package com.youngstudio.oemarket;
 
 public class Item {
 
-    String msg1;
-    String msg2;
-    String msg3;
+    String title;
+    String date;
+    String mainmsg;
     int img;
 
-    public Item(String msg1, String msg2, String msg3, int img) {
-        this.msg1 = msg1;
-        this.msg2 = msg2;
-        this.msg3 = msg3;
+    public Item(String title, String date, String mainmsg, int img) {
+        this.title = title;
+        this.date = date;
+        this.mainmsg = mainmsg;
         this.img = img;
     }
 
-
-    public String getMsg1() {
-        return msg1;
+    public String getTitle() {
+        return title;
     }
 
-    public void setMsg1(String msg1) {
-        this.msg1 = msg1;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getMsg2() {
-        return msg2;
+    public String getDate() {
+        return date;
     }
 
-    public void setMsg2(String msg2) {
-        this.msg2 = msg2;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public String getMsg3() {
-        return msg3;
+    public String getMainmsg() {
+        return mainmsg;
     }
 
-    public void setMsg3(String msg3) {
-        this.msg3 = msg3;
+    public void setMainmsg(String mainmsg) {
+        this.mainmsg = mainmsg;
     }
 
     public int getImg() {
@@ -46,6 +45,4 @@ public class Item {
     public void setImg(int img) {
         this.img = img;
     }
-
-
 }
