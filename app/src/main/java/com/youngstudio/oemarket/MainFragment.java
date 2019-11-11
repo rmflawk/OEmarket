@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,31 +14,49 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.error.VolleyError;
+import com.android.volley.request.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.util.ArrayList;
 
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment {//implements View.OnClickListener {
 
 
     RecyclerView recyclerView;
     MainFragmentAdapter adapter;
     ArrayList<Item> datas = new ArrayList<>();
 
+    Button btn;
+
+
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
 
-        datas.add(new Item("망가진 우산 삽니다", "행당동 ~ 9월 18일", "10,000원", R.drawable.one_ace));
-        datas.add(new Item("삼성 c타입 충전기 케이블", "중구 약수동 ~ 3일전", "무료나눔", R.drawable.bg_one01));
-        datas.add(new Item("100만원으로 본체 2개삽니다", "성수1가제2동 ~ 7일전", "115,000원", R.drawable.bg_one02));
-        datas.add(new Item("커피머신기 패키지로 삽니다", "황학동 ~ 10월8일", "", R.drawable.bg_one03));
-        datas.add(new Item("버즈 화이트 삽니다", "금호동4가 ~ 9월26일", "40,000원", R.drawable.bg_one04));
-        datas.add(new Item("서울 왕십리 버즈 실버 삽니다", "용두동 ~ 9월25일", "250,000원", R.drawable.bg_one05));
-        datas.add(new Item("온누리 상품권 삽니다", "동대문구 전농동 ~ 9월24일", "", R.drawable.bg_one06));
-        datas.add(new Item("모니터 어댑터 사요", "왕십리동 ~ 9월 20일", "180,000원", R.drawable.bg_one07));
-        datas.add(new Item("망가진 우산 삽니다", "행당동 ~ 9월 18일", "10,000원", R.drawable.bg_one08));
+//        datas.add(new Item("망가진 우산 삽니다", "행당동 ~ 9월 18일", "10,000원", R.drawable.one_ace));
+//        datas.add(new Item("삼성 c타입 충전기 케이블", "중구 약수동 ~ 3일전", "무료나눔", R.drawable.bg_one01));
+//        datas.add(new Item("100만원으로 본체 2개삽니다", "성수1가제2동 ~ 7일전", "115,000원", R.drawable.bg_one02));
+//        datas.add(new Item("커피머신기 패키지로 삽니다", "황학동 ~ 10월8일", "", R.drawable.bg_one03));
+//        datas.add(new Item("버즈 화이트 삽니다", "금호동4가 ~ 9월26일", "40,000원", R.drawable.bg_one04));
+//        datas.add(new Item("서울 왕십리 버즈 실버 삽니다", "용두동 ~ 9월25일", "250,000원", R.drawable.bg_one05));
+//        datas.add(new Item("온누리 상품권 삽니다", "동대문구 전농동 ~ 9월24일", "", R.drawable.bg_one06));
+//        datas.add(new Item("모니터 어댑터 사요", "왕십리동 ~ 9월 20일", "180,000원", R.drawable.bg_one07));
+//        datas.add(new Item("망가진 우산 삽니다", "행당동 ~ 9월 18일", "10,000원", R.drawable.bg_one08));
 
-    }
+
+    }//onCreate
+
 
     @Nullable
     @Override
@@ -57,10 +77,83 @@ public class MainFragment extends Fragment {
         //setHasOptionsMenu(true);
 
 
+        btn= view.findViewById(R.id.btn);
+        //btn.setOnClickListener(this);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "UpLoad", Toast.LENGTH_SHORT).show();
+
+
+                //서버주소
+                String serverUrl="http://rmflawkdk.dothome.co.kr/Android/loadDBtoJson.php";
+
+                //결과를 JsonArray받을 것이므로...
+                //StringRequest가 아니라...
+                //JsonArrayRequest를 이용할 것임
+                JsonArrayRequest jsonArrayRequest= new JsonArrayRequest(Request.Method.POST, serverUrl, null, new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        //Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
+
+                        //파라미터로 응답받은 결과 JsonArray를 분석
+
+
+                        datas.clear();
+                        adapter.notifyDataSetChanged();
+
+                        try {
+                            for(int i=0; i<response.length(); i++){
+                                JSONObject jsonObject= response.getJSONObject(i);
+
+                                int no= Integer.parseInt( jsonObject.getString("no") );
+                                String name= jsonObject.getString("name");
+                                String msg= jsonObject.getString("message");
+                                String price= jsonObject.getString("price");
+                                String imgPath= jsonObject.getString("imgPath");
+                                String date= jsonObject.getString("date");
+
+                                //이미지 경로의 경우 서버IP가 제외된 주소이므로(uploads/xxxxx.jpg) 바로 사용 불가.
+
+                                imgPath = "http://rmflawkdk.dothome.co.kr/Android/"+imgPath;
+
+                                datas.add( 0 , new Item(no, name, price, date, msg, imgPath) );
+                                adapter.notifyItemInserted(0);
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //Toast.makeText(getActivity(), "ERROR", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                //실제 요청작업을 수행해주는 요청큐 객체 생성
+                RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
+
+                //요청큐에 요청객체 추가
+                requestQueue.add(jsonArrayRequest);
+            }
+        });
+
         return view;
     }
 
-}//Page1Fragmane
+//    @Override
+//    public void onClick(View view) {
+//
+//        Toast.makeText(getActivity(), "aaa", Toast.LENGTH_SHORT).show();
+//    }
+
+
+}//MainFragmane
+
+
 
 //        bnv = view.findViewById(R.id.bnv);
 //        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

@@ -18,18 +18,18 @@
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:icon="@drawable/ic_main_bottom_a"
-        android:title="글쓰기"/>
+        android:title="채팅"/>
 
     <item android:id="@+id/bnv_dd"
         app:showAsAction="ifRoom"
         android:enabled="true"
-        android:icon="@drawable/ic_main_bottom_a"
-        android:title="채팅"/>
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="나의 당근"/>
 
     <item android:id="@+id/bnv_ee"
         app:showAsAction="ifRoom"
         android:enabled="true"
-        android:icon="@android:drawable/ic_menu_help"
-        android:title="나의 당근"/>
+        android:icon="@drawable/ic_main_bottom_a"
+        android:title="글쓰기"/>
 
 </menu>

@@ -2,24 +2,45 @@ package com.youngstudio.oemarket;
 
 public class Item {
 
-    String title;
+    int no;
+    String name;
     String date;
+    String price;
     String mainmsg;
+    String imgPath;
+    String subName;
     int img;
 
-    public Item(String title, String date, String mainmsg, int img) {
-        this.title = title;
+    public Item(int no, String name, String price, String date, String mainmsg, String imgPath) {
+        this.no = no;
+        this.name = name;
         this.date = date;
+        this.price = price;
         this.mainmsg = mainmsg;
+        this.imgPath = imgPath;
+    }
+
+    public Item(String name, String date, String subName, int img) {
+        this.name = name;
+        this.date = date;
+        this.subName = subName;
         this.img = img;
     }
 
-    public String getTitle() {
-        return title;
+    public int getNo() {
+        return no;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setNo(int no) {
+        this.no = no;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDate() {
@@ -30,6 +51,14 @@ public class Item {
         this.date = date;
     }
 
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
     public String getMainmsg() {
         return mainmsg;
     }
@@ -38,11 +67,11 @@ public class Item {
         this.mainmsg = mainmsg;
     }
 
-    public int getImg() {
-        return img;
+    public String getImgPath() {
+        return imgPath;
     }
 
-    public void setImg(int img) {
-        this.img = img;
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
     }
 }

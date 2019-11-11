@@ -90,7 +90,7 @@ public class WritingActivity extends AppCompatActivity {
                         imgPath= getRealPathFromUri(uri);
 
                         //이미지 경로 Uri 확인해보기
-                        new AlertDialog.Builder(this).setMessage(uri.toString()+ "\n"+imgPath).create().show();
+                        //new AlertDialog.Builder(this).setMessage(uri.toString()+ "\n"+imgPath).create().show();
                     }
                 }else{
                     Toast.makeText(this, "이미지 선택을 하지 않았습니다.", Toast.LENGTH_SHORT).show();
@@ -149,13 +149,14 @@ public class WritingActivity extends AppCompatActivity {
         //요청객체를 서버로 보낼 우체통같은 객체 생성
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(smpr);
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
 
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //startActivity(new Intent(this, MainActivity.class));
-        //finish();
+
     }
 }//class
