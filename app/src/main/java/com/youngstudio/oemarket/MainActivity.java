@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -105,11 +106,11 @@ public class MainActivity extends AppCompatActivity {
                         MainActivity.appBarLayout.setVisibility(View.GONE);
                         navigationView.getMenu().getItem(position).setChecked(true);
                         break;
-                    case 4:
-                        MainActivity.main_iv.setVisibility(View.GONE);
-                        MainActivity.appBarLayout.setVisibility(View.GONE);
-                        navigationView.getMenu().getItem(position).setChecked(true);
-                        break;
+//                    case 4:
+//                        MainActivity.main_iv.setVisibility(View.GONE);
+//                        MainActivity.appBarLayout.setVisibility(View.GONE);
+//                        navigationView.getMenu().getItem(position).setChecked(true);
+//                        break;
                 }
 
             }
@@ -159,7 +160,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.bnv_ee:
                     MainActivity.main_iv.setVisibility(View.GONE);
                     MainActivity.appBarLayout.setVisibility(View.GONE);
-                    pager.setCurrentItem(4,true);
+                    Intent intent= new Intent(MainActivity.this, WritingActivity.class);
+                    startActivity(intent);
                     break;
             }
             return true;

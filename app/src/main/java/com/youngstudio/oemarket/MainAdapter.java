@@ -12,16 +12,15 @@ import java.util.List;
 
 public class MainAdapter extends FragmentPagerAdapter {
 
-    Fragment[] fragments= new Fragment[5];
+    Fragment[] fragments= new Fragment[4];
 
 
     public MainAdapter(FragmentManager supportFragmentManager) {
         super(supportFragmentManager);
         fragments[0]= new MainFragment();
         fragments[1]= new KategorieFragment();
-        fragments[2]= new WritingFragment();
-        fragments[3]= new ChattingFragment();
-        fragments[4]= new MyPageFragment();
+        fragments[2]= new ChattingFragment();
+        fragments[3]= new MyPageFragment();
     }
 
 
