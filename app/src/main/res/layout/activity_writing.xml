@@ -66,7 +66,7 @@
             android:layout_marginTop="14dp" />
 
         <EditText
-            android:id="@+id/writing_ev_title"
+            android:id="@+id/name"
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -156,7 +156,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/writing_et_price"
+                android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:cursorVisible="false"
@@ -193,7 +193,7 @@
 
         <!--  android:editable="false" -->
         <EditText
-            android:id="@+id/writing_et_mainmsg"
+            android:id="@+id/msg"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:cursorVisible="false"

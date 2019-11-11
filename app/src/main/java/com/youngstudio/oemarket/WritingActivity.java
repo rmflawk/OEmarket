@@ -1,4 +1,5 @@
 package com.youngstudio.oemarket;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,9 +31,10 @@ import com.android.volley.toolbox.Volley;
 
 public class WritingActivity extends AppCompatActivity {
 
-    public EditText writing_et_price,writing_ev_title,writing_et_mainmsg;
-    public ImageView iv;
-    public String imgPath;
+    EditText etPrice,etName,etMsg;
+    ImageView iv;
+
+    String imgPath;
 
 
     @Override
@@ -40,9 +42,10 @@ public class WritingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_writing);
 
-        writing_et_price= findViewById(R.id.writing_et_price);
-        writing_ev_title= findViewById(R.id.writing_ev_title);
-        writing_et_mainmsg= findViewById(R.id.writing_et_mainmsg);
+        etName= findViewById(R.id.name);
+        etMsg= findViewById(R.id.msg);
+        etPrice= findViewById(R.id.price);
+
         iv= findViewById(R.id.writing_iv);
 
 
@@ -112,9 +115,9 @@ public class WritingActivity extends AppCompatActivity {
 
     public void clickUpload(View view) {
         //서버로 보낼 데이터
-        String name= writing_ev_title.getText().toString();
-        String msg= writing_et_mainmsg.getText().toString();
-        int price= Integer.parseInt(writing_et_price.getText().toString());
+        String name= etName.getText().toString();
+        String msg= etMsg.getText().toString();
+        int price= Integer.parseInt(etPrice.getText().toString());
 
         //안드로이드에서 보낼 데이터를 받을 php서버주소
         String serverUrl="http://rmflawkdk.dothome.co.kr/Android/insertDB.php";
