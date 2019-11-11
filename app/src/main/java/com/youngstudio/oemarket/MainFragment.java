@@ -1,5 +1,8 @@
 package com.youngstudio.oemarket;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,23 +40,18 @@ public class MainFragment extends Fragment {//implements View.OnClickListener {
 
     Button btn;
 
-
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
 
-//        datas.add(new Item("망가진 우산 삽니다", "행당동 ~ 9월 18일", "10,000원", R.drawable.one_ace));
-//        datas.add(new Item("삼성 c타입 충전기 케이블", "중구 약수동 ~ 3일전", "무료나눔", R.drawable.bg_one01));
-//        datas.add(new Item("100만원으로 본체 2개삽니다", "성수1가제2동 ~ 7일전", "115,000원", R.drawable.bg_one02));
-//        datas.add(new Item("커피머신기 패키지로 삽니다", "황학동 ~ 10월8일", "", R.drawable.bg_one03));
-//        datas.add(new Item("버즈 화이트 삽니다", "금호동4가 ~ 9월26일", "40,000원", R.drawable.bg_one04));
-//        datas.add(new Item("서울 왕십리 버즈 실버 삽니다", "용두동 ~ 9월25일", "250,000원", R.drawable.bg_one05));
-//        datas.add(new Item("온누리 상품권 삽니다", "동대문구 전농동 ~ 9월24일", "", R.drawable.bg_one06));
-//        datas.add(new Item("모니터 어댑터 사요", "왕십리동 ~ 9월 20일", "180,000원", R.drawable.bg_one07));
-//        datas.add(new Item("망가진 우산 삽니다", "행당동 ~ 9월 18일", "10,000원", R.drawable.bg_one08));
-
+        // 외부저장소 권한 동적퍼미션
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
+            int permissionResult= getActivity().checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            if(permissionResult == PackageManager.PERMISSION_DENIED){
+                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},10);
+            }
+        }
 
     }//onCreate
 
@@ -61,7 +59,6 @@ public class MainFragment extends Fragment {//implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
 
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
@@ -84,7 +81,6 @@ public class MainFragment extends Fragment {//implements View.OnClickListener {
             public void onClick(View view) {
                 Toast.makeText(getActivity(), "UpLoad", Toast.LENGTH_SHORT).show();
 
-
                 //서버주소
                 String serverUrl="http://rmflawkdk.dothome.co.kr/Android/loadDBtoJson.php";
 
@@ -97,7 +93,6 @@ public class MainFragment extends Fragment {//implements View.OnClickListener {
                         //Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
 
                         //파라미터로 응답받은 결과 JsonArray를 분석
-
 
                         datas.clear();
                         adapter.notifyDataSetChanged();
@@ -238,7 +233,15 @@ public class MainFragment extends Fragment {//implements View.OnClickListener {
 //        super.onPrepareOptionsMenu(menu);
 //    }
 
-
+//        datas.add(new Item("망가진 우산 삽니다", "행당동 ~ 9월 18일", "10,000원", R.drawable.one_ace));
+//        datas.add(new Item("삼성 c타입 충전기 케이블", "중구 약수동 ~ 3일전", "무료나눔", R.drawable.bg_one01));
+//        datas.add(new Item("100만원으로 본체 2개삽니다", "성수1가제2동 ~ 7일전", "115,000원", R.drawable.bg_one02));
+//        datas.add(new Item("커피머신기 패키지로 삽니다", "황학동 ~ 10월8일", "", R.drawable.bg_one03));
+//        datas.add(new Item("버즈 화이트 삽니다", "금호동4가 ~ 9월26일", "40,000원", R.drawable.bg_one04));
+//        datas.add(new Item("서울 왕십리 버즈 실버 삽니다", "용두동 ~ 9월25일", "250,000원", R.drawable.bg_one05));
+//        datas.add(new Item("온누리 상품권 삽니다", "동대문구 전농동 ~ 9월24일", "", R.drawable.bg_one06));
+//        datas.add(new Item("모니터 어댑터 사요", "왕십리동 ~ 9월 20일", "180,000원", R.drawable.bg_one07));
+//        datas.add(new Item("망가진 우산 삽니다", "행당동 ~ 9월 18일", "10,000원", R.drawable.bg_one08));
 
 
 
