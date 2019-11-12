@@ -6,17 +6,17 @@ public class Item {
     String name;
     String date;
     String price;
-    String mainmsg;
+    String mainMsg;
     String imgPath;
     String subName;
     int img;
 
-    public Item(int no, String name, String price, String date, String mainmsg, String imgPath) {
+    public Item(int no, String name, String price, String date, String mainMsg, String imgPath) {
         this.no = no;
         this.name = name;
         this.date = date;
         this.price = price;
-        this.mainmsg = mainmsg;
+        this.mainMsg = mainMsg;
         this.imgPath = imgPath;
     }
 
@@ -60,11 +60,11 @@ public class Item {
     }
 
     public String getMainmsg() {
-        return mainmsg;
+        return mainMsg;
     }
 
     public void setMainmsg(String mainmsg) {
-        this.mainmsg = mainmsg;
+        this.mainMsg = mainmsg;
     }
 
     public String getImgPath() {

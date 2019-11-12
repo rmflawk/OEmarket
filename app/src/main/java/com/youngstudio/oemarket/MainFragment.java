@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -53,6 +54,9 @@ public class MainFragment extends Fragment {//implements View.OnClickListener {
             }
         }
 
+
+
+
     }//onCreate
 
 
@@ -75,6 +79,7 @@ public class MainFragment extends Fragment {//implements View.OnClickListener {
 
 
         btn= view.findViewById(R.id.btn);
+
         //btn.setOnClickListener(this);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,6 +141,16 @@ public class MainFragment extends Fragment {//implements View.OnClickListener {
             }
         });
 
+        final SwipeRefreshLayout swipeRefreshLayout= view.findViewById(R.id.swiperefresh_layout);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                btn.performClick();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
+        //btn.performClick();
         return view;
     }
 

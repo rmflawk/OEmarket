@@ -6,9 +6,11 @@
     android:layout_height="match_parent">
 
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:weightSum="5"
         android:orientation="vertical">
 
         <Button
@@ -17,26 +19,35 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:text="load"
+            android:visibility="gone"
             android:onClick="clickbtn"/>
+
+
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swiperefresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_main"
             android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="500dp"
+            android:layout_height="0dp"
+            android:layout_weight="4"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="vertical">
         </androidx.recyclerview.widget.RecyclerView>
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        </LinearLayout>
 
 
 

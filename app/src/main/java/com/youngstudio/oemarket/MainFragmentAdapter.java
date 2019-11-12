@@ -78,35 +78,40 @@ public class MainFragmentAdapter extends RecyclerView.Adapter {
             tvDate= itemView.findViewById(R.id.main_tv_date);
             tvPrice= itemView.findViewById(R.id.main_tv_price);
 
-//            //아이템뷰 클릭리스너
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    int position= getLayoutPosition();
-//                    Toast.makeText(context, ""+position, Toast.LENGTH_SHORT).show();
-//
-//                    //상세화면(DetailActivity)에 넘겨줄 데이터들
-//                    String msg1= datas.get(position).name;
-//                    String msg2= datas.get(position).date;
-//                    String msg3= datas.get(position).mainmsg;
-//                    int imgId= datas.get(position).img;
-//
-//                    //아이템의 상세 화면(DetailActivity)로 전환
-//                    Intent intent= new Intent(context, ClickActivity.class);
-//                    intent.putExtra("msg1", msg1);
-//                    intent.putExtra("msg2", msg2);
-//                    intent.putExtra("msg3", msg3);
-//                    intent.putExtra("Img", imgId);
-//
-//                    //액티비티 전화시 효과(api21버전 이상에서만 가능)
-//                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-//                        ActivityOptions opts= ActivityOptions.makeSceneTransitionAnimation((MainActivity)context, new Pair<View, String>(ivImg, "IMG"));
-//                        context.startActivity(intent, opts.toBundle());
-//                    }else{
-//                        context.startActivity(intent);
-//                    }
-//                }
-//            });
+            //아이템뷰 클릭리스너
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position= getLayoutPosition();
+                    Toast.makeText(context, ""+position, Toast.LENGTH_SHORT).show();
+
+                    //상세화면(DetailActivity)에 넘겨줄 데이터들
+
+                    String name= datas.get(position).name;
+                    String date= datas.get(position).date;
+                    String mainMsg= datas.get(position).mainMsg;
+                    String price= datas.get(position).price;
+                    String imgPath= datas.get(position).imgPath;
+
+
+
+                    //아이템의 상세 화면(DetailActivity)로 전환
+                    Intent intent= new Intent(context, ClickActivity.class);
+                    intent.putExtra("name", name);
+                    intent.putExtra("date", date);
+                    intent.putExtra("mainMsg", mainMsg);
+                    intent.putExtra("price", price);
+                    intent.putExtra("imgPath", imgPath);
+
+                    //액티비티 전화시 효과(api21버전 이상에서만 가능)
+                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                        ActivityOptions opts= ActivityOptions.makeSceneTransitionAnimation((MainActivity)context, new Pair<View, String>(ivImg, "IMG"));
+                        context.startActivity(intent, opts.toBundle());
+                    }else{
+                        context.startActivity(intent);
+                    }
+                }
+            });
 
 
 

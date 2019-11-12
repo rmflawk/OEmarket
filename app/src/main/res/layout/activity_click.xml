@@ -63,6 +63,7 @@
                 android:padding="4dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/click_circleiv"
                     android:layout_marginTop="16dp"
                     android:layout_width="56dp"
                     android:layout_height="56dp"
@@ -77,6 +78,7 @@
                     android:padding="4dp">
 
                     <TextView
+                        android:id="@+id/click_tv_nikname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="닉네임"
@@ -87,6 +89,7 @@
                         android:layout_marginLeft="8dp"/>
 
                     <TextView
+                        android:id="@+id/click_tv_map"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="행당동"
@@ -125,6 +128,7 @@
                 android:layout_marginTop="16dp"/>
 
             <TextView
+                android:id="@+id/click_tv_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="(삽니다) 해법문학시리즈 2015개정 교육과정"
@@ -136,6 +140,7 @@
 
 
             <TextView
+                android:id="@+id/click_tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -143,19 +148,14 @@
                 android:text="삽니다 . 16시간 전"/>
 
             <EditText
+                android:id="@+id/click_et_mainmsg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:layout_marginLeft="14dp"
                 android:cursorVisible="false"
                 android:editable="false"
-                android:text="abcabc\nabcabcabcabc\nabcabcabcabc\nabcabcabcabc\nabcabc
-abcabc\nabcabcabcabc\nabcabcabcabc\nabcabcabcabc\nabcabc
-abcabc\nabcabcabcabc\nabcabcabcabc\nabcabcabcabc\nabcabc
-abcabc\nabcabcabcabc\nabcabcabcabc\nabcabcabcabc\nabcabc
-abcabc\nabcabcabcabc\nabcabcabcabc\nabcabcabcabc\nabcabc
-abcabc\nabcabcabcabc\nabcabcabcabc\nabcabcabcabc\nabcabc
-abcabc\nabcabcabcabc\nabcabcabcabc\nabcabcabcabc\nabcabc"
+                android:text="abcabc\nabcabcabcabc\nabcabcabcabcc"
                 android:layout_marginBottom="16dp"
                 android:background="@null"/>
 
@@ -324,6 +324,7 @@ abcabc\nabcabcabcabc\nabcabcabcabc\nabcabcabcabc\nabcabc"
 
 
                 <TextView
+                    android:id="@+id/click_tv_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="40,000원"

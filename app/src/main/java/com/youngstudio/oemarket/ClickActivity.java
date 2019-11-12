@@ -9,18 +9,28 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
 public class ClickActivity extends AppCompatActivity {
 
     ImageView iv;
+    TextView name,date,price;
+    EditText mainMsg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_click);
+
+        name= findViewById(R.id.click_tv_name);
+        date= findViewById(R.id.click_tv_date);
+        price= findViewById(R.id.click_tv_price);
+        mainMsg= findViewById(R.id.click_et_mainmsg);
+        iv= findViewById(R.id.iv);
 
         Toolbar toolbar= findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -29,26 +39,31 @@ public class ClickActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         Intent intent= getIntent();
-        String msg1= intent.getStringExtra("msg1");
-        String msg2= intent.getStringExtra("msg2");
-        String msg3= intent.getStringExtra("msg3");
-
-        int imgId= intent.getIntExtra("Img", R.drawable.bg_one01);
-
-        //name을 액션바에 title로 설정
-        //getSupportActionBar().setTitle(name);
-
-        //imgId를 이미지뷰에 보여주기
-        iv= findViewById(R.id.iv);
-        Glide.with(this).load(imgId).into(iv);
+        name.setText(intent.getStringExtra("name"));
+        date.setText(intent.getStringExtra("date"));
+        mainMsg.setText(intent.getStringExtra("mainMsg"));
+        price.setText(intent.getStringExtra("price"));
+        Glide.with(this).load(intent.getStringExtra("imgPath")).into(iv);
 
         //iv에게 Transition(전환)의 Pair를 위한 이름 부여
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             iv.setTransitionName("IMG");
         }
 
+        //String name= intent.getStringExtra("name");
+        //String date= intent.getStringExtra("date");
+        //String mainMsg= intent.getStringExtra("mainMsg");
+        //String price= intent.getStringExtra("price");
+        //String imgPath= intent.getStringExtra("imgPath");
 
+        //int imgId= intent.getIntExtra("Img", R.drawable.bg_one01);
 
+        //name을 액션바에 title로 설정
+        //getSupportActionBar().setTitle(name);
+
+        //imgId를 이미지뷰에 보여주기
+        //iv= findViewById(R.id.iv);
+        //Glide.with(this).load(intent.getStringExtra("imgPath")).into(iv);
 
     }//onCreate
 
