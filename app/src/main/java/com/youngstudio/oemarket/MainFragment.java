@@ -1,9 +1,13 @@
 package com.youngstudio.oemarket;
 
 import android.Manifest;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +34,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 public class MainFragment extends Fragment {//implements View.OnClickListener {
@@ -53,10 +59,6 @@ public class MainFragment extends Fragment {//implements View.OnClickListener {
                 requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},10);
             }
         }
-
-
-
-
     }//onCreate
 
 
@@ -114,7 +116,6 @@ public class MainFragment extends Fragment {//implements View.OnClickListener {
                                 String date= jsonObject.getString("date");
 
                                 //이미지 경로의 경우 서버IP가 제외된 주소이므로(uploads/xxxxx.jpg) 바로 사용 불가.
-
                                 imgPath = "http://rmflawkdk.dothome.co.kr/Android/"+imgPath;
 
                                 datas.add( 0 , new Item(no, name, price, date, msg, imgPath) );

@@ -5,25 +5,25 @@
     <item android:id="@+id/bnv_aa"
         app:showAsAction="ifRoom"
         android:enabled="true"
-        android:icon="@android:drawable/ic_menu_search"
+        android:icon="@drawable/ic_home_black_24dp"
         android:title="홈"/>
 
     <item android:id="@+id/bnv_bb"
         app:showAsAction="ifRoom"
         android:enabled="true"
-        android:icon="@android:drawable/ic_menu_agenda"
+        android:icon="@drawable/ic_kategori_black_24dp"
         android:title="카테고리"/>
 
     <item android:id="@+id/bnv_cc"
         app:showAsAction="ifRoom"
         android:enabled="true"
-        android:icon="@drawable/ic_main_bottom_a"
+        android:icon="@drawable/ic_chat_black_24dp"
         android:title="채팅"/>
 
     <item android:id="@+id/bnv_dd"
         app:showAsAction="ifRoom"
         android:enabled="true"
-        android:icon="@android:drawable/ic_menu_help"
+        android:icon="@drawable/ic_person_black_24dp"
         android:title="나의 당근"/>
 
     <item android:id="@+id/bnv_ee"

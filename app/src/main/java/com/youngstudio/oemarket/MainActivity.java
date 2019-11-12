@@ -12,9 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,6 +32,8 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     public static TextView main_tv;
     public static ImageView main_iv;
     public static AppBarLayout appBarLayout;
+    public static Toolbar toolbar;
 
 
     @Override
@@ -47,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         main_tv= findViewById(R.id.main_tv);
@@ -92,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         MainActivity.main_tv.setText("카테고리");
                         MainActivity.main_iv.setVisibility(View.GONE);
-                        MainActivity.appBarLayout.setVisibility(View.VISIBLE);
+                        MainActivity.appBarLayout.setVisibility(View.GONE);
                         navigationView.getMenu().getItem(position).setChecked(true);
                         break;
 
@@ -112,15 +119,15 @@ public class MainActivity extends AppCompatActivity {
 //                        navigationView.getMenu().getItem(position).setChecked(true);
 //                        break;
                 }
-
             }
-
             @Override
             public void onPageScrollStateChanged(int state)
             {
 
             }
         });
+
+        //getHashKey();
 
     }//onCreate
 
@@ -137,12 +144,13 @@ public class MainActivity extends AppCompatActivity {
                     MainActivity.appBarLayout.setVisibility(View.VISIBLE);
                     //transaction.replace(R.id.relativelayout, page1Fragment).commitAllowingStateLoss();
                     pager.setCurrentItem(0,true);
+                    //Toast.makeText(MainActivity.this, "0", Toast.LENGTH_SHORT).show();
                     break;
 
                 case R.id.bnv_bb:
                     MainActivity.main_tv.setText("카테고리");
                     MainActivity.main_iv.setVisibility(View.GONE);
-                    MainActivity.appBarLayout.setVisibility(View.VISIBLE);
+                    MainActivity.appBarLayout.setVisibility(View.GONE);
                     //transaction.replace(R.id.relativelayout, page2Fragment).commitAllowingStateLoss();
                     pager.setCurrentItem(1,true);
                     break;
@@ -169,13 +177,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.option, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
+
+
 }//MainActivity.class
+
+
 
 
 

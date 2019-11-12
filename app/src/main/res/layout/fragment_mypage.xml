@@ -50,6 +50,7 @@
 
 
             <LinearLayout
+                android:id="@+id/mypage_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -58,7 +59,7 @@
                 android:paddingLeft="8dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/page4_iv_img"
+                    android:id="@+id/circle_iv"
                     android:layout_marginTop="16dp"
                     android:layout_width="56dp"
                     android:layout_height="56dp"
@@ -100,6 +101,7 @@
                     android:layout_height="wrap_content">
 
                     <Button
+                        android:id="@+id/profile"
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"
                         android:text="프로필보기"

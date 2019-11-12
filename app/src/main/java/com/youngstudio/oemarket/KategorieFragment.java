@@ -24,7 +24,7 @@ public class KategorieFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view= inflater.inflate(R .layout.fragment_kategorie,container,false);
-        setHasOptionsMenu(true);
+        //setHasOptionsMenu(true);
         return view;
     }
 
@@ -37,7 +37,7 @@ public class KategorieFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.option2, menu);
+        //inflater.inflate(R.menu.option2, menu);
 
     }
 

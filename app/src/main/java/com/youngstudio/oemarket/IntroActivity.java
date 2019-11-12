@@ -3,11 +3,18 @@ package com.youngstudio.oemarket;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class IntroActivity extends AppCompatActivity {
 
@@ -56,4 +63,8 @@ public class IntroActivity extends AppCompatActivity {
         //Toast.makeText(this, "aaa", Toast.LENGTH_SHORT).show();
 
     }
+
+
+
+
 }
