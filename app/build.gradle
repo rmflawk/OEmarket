@@ -36,8 +36,7 @@ dependencies {
 
     implementation 'com.android.support:support-v4:'
 
-    // 카카오 로그인 sdk를 사용하기 위해 필요.
-    api group: 'com.kakao.sdk', name: 'usermgmt', version: '1.14.0'
+    implementation 'com.kakao.sdk:usermgmt:1.17.0'
 
 
 }
