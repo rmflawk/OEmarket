@@ -18,7 +18,7 @@ import com.bumptech.glide.Glide;
 public class ClickActivity extends AppCompatActivity {
 
     ImageView iv;
-    TextView name,date,price;
+    TextView name,date,price,kt;
     EditText mainMsg;
 
     @Override
@@ -30,6 +30,7 @@ public class ClickActivity extends AppCompatActivity {
         date= findViewById(R.id.click_tv_date);
         price= findViewById(R.id.click_tv_price);
         mainMsg= findViewById(R.id.click_et_mainmsg);
+        kt= findViewById(R.id.click_tv_kt);
         iv= findViewById(R.id.iv);
 
         Toolbar toolbar= findViewById(R.id.toolbar);
@@ -41,8 +42,12 @@ public class ClickActivity extends AppCompatActivity {
         Intent intent= getIntent();
         name.setText(intent.getStringExtra("name"));
         date.setText(intent.getStringExtra("date"));
+        date.setText(intent.getStringExtra("date"));
         mainMsg.setText(intent.getStringExtra("mainMsg"));
+        kt.setText(intent.getStringExtra("kt")+" - ");
         price.setText(intent.getStringExtra("price"));
+        //kt.setText("aaa");
+
         Glide.with(this).load(intent.getStringExtra("imgPath")).into(iv);
 
         //iv에게 Transition(전환)의 Pair를 위한 이름 부여

@@ -59,6 +59,7 @@ public class MainFragment extends Fragment {//implements View.OnClickListener {
                 requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},10);
             }
         }
+
     }//onCreate
 
 
@@ -112,13 +113,15 @@ public class MainFragment extends Fragment {//implements View.OnClickListener {
                                 String name= jsonObject.getString("name");
                                 String msg= jsonObject.getString("message");
                                 String price= jsonObject.getString("price");
+                                String kt= jsonObject.getString("kt");
                                 String imgPath= jsonObject.getString("imgPath");
                                 String date= jsonObject.getString("date");
+
 
                                 //이미지 경로의 경우 서버IP가 제외된 주소이므로(uploads/xxxxx.jpg) 바로 사용 불가.
                                 imgPath = "http://rmflawkdk.dothome.co.kr/Android/"+imgPath;
 
-                                datas.add( 0 , new Item(no, name, price, date, msg, imgPath) );
+                                datas.add( 0 , new Item(no, name, price, kt, date, msg, imgPath) );
                                 adapter.notifyItemInserted(0);
                             }
 

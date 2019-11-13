@@ -92,6 +92,8 @@ public class MainFragmentAdapter extends RecyclerView.Adapter {
                     String mainMsg= datas.get(position).mainMsg;
                     String price= datas.get(position).price;
                     String imgPath= datas.get(position).imgPath;
+                    String kt= datas.get(position).kt;
+
 
 
 
@@ -102,6 +104,7 @@ public class MainFragmentAdapter extends RecyclerView.Adapter {
                     intent.putExtra("mainMsg", mainMsg);
                     intent.putExtra("price", price);
                     intent.putExtra("imgPath", imgPath);
+                    intent.putExtra("kt", kt);
 
                     //액티비티 전화시 효과(api21버전 이상에서만 가능)
                     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){

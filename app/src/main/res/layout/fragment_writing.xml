@@ -97,6 +97,7 @@
             android:textColor="#444444"/>
 
         <ImageView
+            android:id="@+id/writing_iv_kategorie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -164,6 +165,7 @@
             android:hint="\ 가격 ( 선택사항 )" />
 
         <RadioButton
+            android:id="@+id/writing_rbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="160dp"

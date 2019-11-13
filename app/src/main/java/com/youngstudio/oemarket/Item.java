@@ -6,18 +6,21 @@ public class Item {
     String name;
     String date;
     String price;
+    String kt;
     String mainMsg;
     String imgPath;
     String subName;
     int img;
 
-    public Item(int no, String name, String price, String date, String mainMsg, String imgPath) {
+    public Item(int no, String name, String price, String kt, String date, String mainMsg, String imgPath) {
         this.no = no;
         this.name = name;
         this.date = date;
+        this.kt = kt;
         this.price = price;
         this.mainMsg = mainMsg;
         this.imgPath = imgPath;
+
     }
 
     public Item(String name, String date, String subName, int img) {
@@ -25,6 +28,14 @@ public class Item {
         this.date = date;
         this.subName = subName;
         this.img = img;
+    }
+
+    public String getKt() {
+        return kt;
+    }
+
+    public void setKt(String kt) {
+        this.kt = kt;
     }
 
     public int getNo() {

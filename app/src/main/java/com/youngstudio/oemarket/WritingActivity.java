@@ -8,6 +8,7 @@ import androidx.loader.content.CursorLoader;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -20,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -36,6 +38,13 @@ public class WritingActivity extends AppCompatActivity {
 
     String imgPath;
 
+    ImageView iv_Kategorie;
+    TextView tv_Kategotie;
+
+
+    String[] items= new String[]{"디지털/가전", "가구/인테리어", "유아/유아도서","생활/가공식품","여성의류/잡화","남성패션/잡화",
+                                "뷰티미용","스포츠/레저","게임/취미","도서/티켓/음반","반려동물용품","기타 중고물품","삽니다!!"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +54,53 @@ public class WritingActivity extends AppCompatActivity {
         etName= findViewById(R.id.name);
         etMsg= findViewById(R.id.msg);
         etPrice= findViewById(R.id.price);
+        iv_Kategorie= findViewById(R.id.writing_iv_kategorie);
+        tv_Kategotie= findViewById(R.id.writing_tv_kategotie);
 
         iv= findViewById(R.id.writing_iv);
+
+
+
+        iv_Kategorie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+
+
+                AlertDialog.Builder builder= new AlertDialog.Builder(WritingActivity.this);
+
+                //건축가에게 원하는 작업요청
+                //builder.setTitle("다이얼로그");
+                //builder.setIcon(android.R.drawable.ic_dialog_alert);
+
+                builder.setItems(items, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+
+                        tv_Kategotie.setText(items[which]);
+                        //두번째 파라미터 which : 항목의 인덱스번호[가장 위 항목이 0번 ]
+                        //Toast t= Toast.makeText(WritingActivity.this, items[which], Toast.LENGTH_SHORT);
+                        //t.show();
+                    }
+
+
+                });
+
+
+                //건축가(Builder)에게 AlertDialog 만들어 달라고 요청
+                AlertDialog dialog= builder.create();
+
+                //다이얼로그의 바깥쪽을 터치하였을 때 다이얼로그가 꺼지지 않도록..
+                dialog.setCanceledOnTouchOutside(true);
+
+                //뒤로가기 버튼을 클릭해도 꺼지지 않도록 하려면..
+                //dialog.setCancelable(false);
+
+                //다이얼로그를 화면에 보이기!!
+                dialog.show();
+
+
+            }//onclick
+        });
 
 
         //액션바에 제목이 자동표시 되지 않도록
@@ -117,6 +171,7 @@ public class WritingActivity extends AppCompatActivity {
         //서버로 보낼 데이터
         String name= etName.getText().toString();
         String msg= etMsg.getText().toString();
+        String ktgr= tv_Kategotie.getText().toString();
         int price= Integer.parseInt(etPrice.getText().toString());
 
         //안드로이드에서 보낼 데이터를 받을 php서버주소
@@ -143,6 +198,7 @@ public class WritingActivity extends AppCompatActivity {
         smpr.addStringParam("name", name);
         smpr.addStringParam("msg", msg);
         smpr.addStringParam("price", price+"");
+        smpr.addStringParam("ktgr", ktgr);
         //이미지파일 추가
         smpr.addFile("img", imgPath);
 
