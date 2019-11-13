@@ -106,8 +106,10 @@ public class MainFragmentAdapter extends RecyclerView.Adapter {
                     intent.putExtra("imgPath", imgPath);
                     intent.putExtra("kt", kt);
 
+
                     //액티비티 전화시 효과(api21버전 이상에서만 가능)
                     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+
                         ActivityOptions opts= ActivityOptions.makeSceneTransitionAnimation((MainActivity)context, new Pair<View, String>(ivImg, "IMG"));
                         context.startActivity(intent, opts.toBundle());
                     }else{

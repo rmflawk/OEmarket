@@ -108,13 +108,11 @@ public class MainActivity extends AppCompatActivity {
                         MainActivity.appBarLayout.setVisibility(View.GONE);
                         navigationView.getMenu().getItem(position).setChecked(true);
                         break;
-
                     case 3:
                         MainActivity.main_iv.setVisibility(View.GONE);
                         MainActivity.appBarLayout.setVisibility(View.GONE);
                         navigationView.getMenu().getItem(position).setChecked(true);
                         break;
-
 //                    case 4:
 //                        MainActivity.main_iv.setVisibility(View.GONE);
 //                        MainActivity.appBarLayout.setVisibility(View.GONE);
@@ -140,7 +138,6 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             //FragmentTransaction transaction = fragmentManager.beginTransaction();
             switch (menuItem.getItemId()) {
-
                 case R.id.bnv_aa:
                     MainActivity.main_tv.setText("도선동");
                     MainActivity.main_iv.setVisibility(View.VISIBLE);
@@ -163,20 +160,17 @@ public class MainActivity extends AppCompatActivity {
                     MainActivity.appBarLayout.setVisibility(View.GONE);
                     pager.setCurrentItem(2,true);
                     break;
-
                 case R.id.bnv_dd:
                     MainActivity.main_iv.setVisibility(View.GONE);
                     MainActivity.appBarLayout.setVisibility(View.GONE);
                     pager.setCurrentItem(3,true);
                     break;
-
                 case R.id.bnv_ee:
                     MainActivity.main_iv.setVisibility(View.GONE);
                     MainActivity.appBarLayout.setVisibility(View.GONE);
                     Intent intent= new Intent(MainActivity.this, WritingActivity.class);
                     startActivity(intent);
                     break;
-
             }
             return true;
         }
