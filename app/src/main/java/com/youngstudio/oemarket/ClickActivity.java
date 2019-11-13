@@ -42,10 +42,9 @@ public class ClickActivity extends AppCompatActivity {
         Intent intent= getIntent();
         name.setText(intent.getStringExtra("name"));
         date.setText(intent.getStringExtra("date"));
-        date.setText(intent.getStringExtra("date"));
         mainMsg.setText(intent.getStringExtra("mainMsg"));
-        kt.setText(intent.getStringExtra("kt")+" - ");
         price.setText(intent.getStringExtra("price"));
+        kt.setText(intent.getStringExtra("kt")+ " - ");
         //kt.setText("aaa");
 
         Glide.with(this).load(intent.getStringExtra("imgPath")).into(iv);

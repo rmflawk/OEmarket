@@ -171,7 +171,7 @@ public class WritingActivity extends AppCompatActivity {
         //서버로 보낼 데이터
         String name= etName.getText().toString();
         String msg= etMsg.getText().toString();
-        String ktgr= tv_Kategotie.getText().toString();
+        String kt= tv_Kategotie.getText().toString();
         int price= Integer.parseInt(etPrice.getText().toString());
 
         //안드로이드에서 보낼 데이터를 받을 php서버주소
@@ -198,7 +198,7 @@ public class WritingActivity extends AppCompatActivity {
         smpr.addStringParam("name", name);
         smpr.addStringParam("msg", msg);
         smpr.addStringParam("price", price+"");
-        smpr.addStringParam("ktgr", ktgr);
+        smpr.addStringParam("kt", kt);
         //이미지파일 추가
         smpr.addFile("img", imgPath);
 
