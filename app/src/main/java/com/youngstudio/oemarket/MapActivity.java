@@ -68,7 +68,6 @@ public class MapActivity extends AppCompatActivity{
                     array = address.split(" ");
                     address= array[0]+ " " +array[1]+ " " +array[2]+ " ";
 
-
                     Toast.makeText(MapActivity.this, address+"현재위치 \n위도 " + latitude + "\n경도 " + longitude, Toast.LENGTH_LONG).show();
                     textview_address.setText(address);
             }
@@ -86,10 +85,15 @@ public class MapActivity extends AppCompatActivity{
         });
     }//onCreate
 
+    @Override
+    public void onBackPressed() {//뒤로가기버튼
+        Intent intent = new Intent();
+        intent.putExtra("array",array[2]);
+        setResult(RESULT_OK, intent);
+        super.onBackPressed();
+    }
 
-    /*
-     * ActivityCompat.requestPermissions를 사용한 퍼미션 요청의 결과를 리턴받는 메소드입니다.
-     */
+    /*ActivityCompat.requestPermissions를 사용한 퍼미션 요청의 결과를 리턴받는 메소드입니다.*/
     @Override
     public void onRequestPermissionsResult(int permsRequestCode,
                                            @NonNull String[] permissions,

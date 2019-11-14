@@ -148,6 +148,8 @@ public class MainActivity extends AppCompatActivity {
                 main_tv.setText(data.getStringExtra("array"));
             }else{
                 Toast.makeText(this, "결과값이 없습니다.", Toast.LENGTH_SHORT).show();
+                MapActivity m= new MapActivity();
+
             }
         }
 

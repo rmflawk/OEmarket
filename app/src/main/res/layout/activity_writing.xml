@@ -125,6 +125,7 @@
             android:paddingTop="8dp">
 
             <TextView
+                android:id="@+id/writing_tv_map"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="도선동과 근처 동네 56개"
@@ -136,6 +137,7 @@
                 android:textColor="#444444"/>
 
             <ImageView
+                android:id="@+id/writing_iv_map"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
