@@ -7,30 +7,33 @@ import android.content.Context;
 import com.kakao.auth.ApprovalType;
 import com.kakao.auth.AuthType;
 import com.kakao.auth.IApplicationConfig;
+import com.kakao.auth.IPushConfig;
 import com.kakao.auth.ISessionConfig;
 import com.kakao.auth.KakaoAdapter;
 import com.kakao.auth.KakaoSDK;
 
 public class GlobalApplication extends Application {
 
-    private static volatile GlobalApplication instance = null;
+    private static GlobalApplication instance;
     //private static volatile Activity currentActivity = null;
 
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
-
         //KakaoSDK.init(new KakaoSDKAdapter());
     }
 
 
 
-    public static GlobalApplication getGlobalApplicationContext() {
+    public static GlobalApplication getInstance() {
         if(instance == null) {
-            throw new IllegalStateException("this application does not inherit com.kakao.GlobalApplication");
+            return instance;
+            //throw new IllegalStateException("this application does not inherit com.kakao.GlobalApplication");
+        }else{
+            instance= new GlobalApplication();
+            return instance;
         }
-        return instance;
     }
 
     @Override
@@ -90,13 +93,19 @@ public class GlobalApplication extends Application {
                 }
             };
         }
+        @Override
+        public IPushConfig getPushConfig() {
+            return super.getPushConfig();
+        }
+
 
         @Override
         public IApplicationConfig getApplicationConfig() {
             return new IApplicationConfig() {
                 @Override
                 public Context getApplicationContext() {
-                    return GlobalApplication.getGlobalApplicationContext();
+                    return GlobalApplication.getInstance().getApplicationContext();
+                    //return GlobalApplication.getGlobalApplicationContext();
                 }
             };
         }
