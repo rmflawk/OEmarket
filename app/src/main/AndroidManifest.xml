@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".App"
+        android:name=".GlobalApplication"
         android:allowBackup="true"
         android:icon="@drawable/aggplant"
         android:label="@string/app_name"
@@ -17,14 +17,15 @@
 
         <meta-data
             android:name="com.kakao.sdk.Appkey"
-            android:value="8eda841aa546826887d57a31ef2b0a47" />
-
-
-        <activity android:name=".LoginMainActivity"></activity>
-
+            android:value="@string/kakao_app_key" />
 
 
         <activity android:name=".LoginActivity">
+
+        </activity>
+
+
+        <activity android:name=".LoginMainActivity">
 
         </activity>
 

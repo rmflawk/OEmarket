@@ -1,5 +1,6 @@
 package com.youngstudio.oemarket;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
@@ -10,9 +11,33 @@ import com.kakao.auth.ISessionConfig;
 import com.kakao.auth.KakaoAdapter;
 import com.kakao.auth.KakaoSDK;
 
-public class App extends Application {
+public class GlobalApplication extends Application {
 
-    private static volatile App instance = null;
+    private static volatile GlobalApplication instance = null;
+    //private static volatile Activity currentActivity = null;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        instance = this;
+
+        //KakaoSDK.init(new KakaoSDKAdapter());
+    }
+
+
+
+    public static GlobalApplication getGlobalApplicationContext() {
+        if(instance == null) {
+            throw new IllegalStateException("this application does not inherit com.kakao.GlobalApplication");
+        }
+        return instance;
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        instance = null;
+    }
 
     private static class KakaoSDKAdapter extends KakaoAdapter {
         /**
@@ -71,31 +96,13 @@ public class App extends Application {
             return new IApplicationConfig() {
                 @Override
                 public Context getApplicationContext() {
-                    return App.getGlobalApplicationContext();
+                    return GlobalApplication.getGlobalApplicationContext();
                 }
             };
         }
-    }
+    }//SDK
 
-    public static App getGlobalApplicationContext() {
-        if(instance == null) {
-            throw new IllegalStateException("this application does not inherit com.kakao.GlobalApplication");
-        }
-        return instance;
-    }
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        instance = this;
 
-        //이걸 키면 안됨 이거 고쳐야함
-        //KakaoSDK.init(new KakaoSDKAdapter());
-    }
 
-    @Override
-    public void onTerminate() {
-        super.onTerminate();
-        instance = null;
-    }
 }
