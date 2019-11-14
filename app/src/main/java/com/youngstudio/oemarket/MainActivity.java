@@ -1,6 +1,7 @@
 package com.youngstudio.oemarket;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -131,11 +132,26 @@ public class MainActivity extends AppCompatActivity {
 
     }//onCreate
 
+
+
     public void clickMap(View view) {
         Intent intent= new Intent(MainActivity.this, MapActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent,10);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 10){
+            if(resultCode == RESULT_OK){
+                main_tv.setText(data.getStringExtra("array"));
+            }else{
+                Toast.makeText(this, "결과값이 없습니다.", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+    }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener {
         @Override

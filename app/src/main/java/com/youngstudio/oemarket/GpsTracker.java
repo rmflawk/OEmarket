@@ -99,7 +99,7 @@ public class GpsTracker extends Service implements LocationListener {
         }
 
         return location;
-    }
+    }//getLocation
 
     public double getLatitude()
     {

@@ -60,6 +60,7 @@
 
 
         <LinearLayout
+            android:layout_marginTop="50dp"
             android:id="@+id/mypage_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,26 +69,27 @@
             android:paddingTop="8dp"
             android:paddingLeft="8dp">
 
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="위치정보 검색"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:background="@drawable/radius"/>
 
 
             <TextView
                 android:id="@+id/textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:hint="동네를 입력하세요"
+                android:layout_marginLeft="10dp"
+                android:hint=""
                 android:layout_toRightOf="@+id/iv_icon"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="#666666"/>
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="확인"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:background="@drawable/radius"/>
 
         </LinearLayout>
 

@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,8 @@ public class MapActivity extends AppCompatActivity{
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int PERMISSIONS_REQUEST_CODE = 100;
     String[] REQUIRED_PERMISSIONS  = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
+    public static String[] array;
+    ImageView pf_iv;
 
 
     @Override
@@ -61,9 +64,24 @@ public class MapActivity extends AppCompatActivity{
                     double longitude = gpsTracker.getLongitude();
 
                     String address = getCurrentAddress(latitude, longitude);
-                    textview_address.setText(address);
+                    address= address.substring(5);
+                    array = address.split(" ");
+                    address= array[0]+ " " +array[1]+ " " +array[2]+ " ";
 
-                    Toast.makeText(MapActivity.this, "현재위치 \n위도 " + latitude + "\n경도 " + longitude, Toast.LENGTH_LONG).show();
+
+                    Toast.makeText(MapActivity.this, address+"현재위치 \n위도 " + latitude + "\n경도 " + longitude, Toast.LENGTH_LONG).show();
+                    textview_address.setText(address);
+            }
+        });
+
+        pf_iv= findViewById(R.id.pf_iv);
+        pf_iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.putExtra("array",array[2]);
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
     }//onCreate
