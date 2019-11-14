@@ -24,18 +24,21 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
+                <Button
                     android:id="@+id/main_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="도선동"
                     android:textStyle="bold"
                     android:textSize="20sp"
-                    android:gravity="start"
-                    android:textColor="#000000"/>
+                    android:background="@drawable/bg_botton"
+                    android:textColor="#000000"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:onClick="clickMap"/>
 
                 <ImageView
                     android:id="@+id/main_iv"
+                    android:layout_marginTop="12dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_a"/>

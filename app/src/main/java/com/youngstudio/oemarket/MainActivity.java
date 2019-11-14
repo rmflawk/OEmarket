@@ -131,6 +131,10 @@ public class MainActivity extends AppCompatActivity {
 
     }//onCreate
 
+    public void clickMap(View view) {
+        Intent intent= new Intent(MainActivity.this, MapActivity.class);
+        startActivity(intent);
+    }
 
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener {

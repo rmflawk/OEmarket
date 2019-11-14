@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:name=".GlobalApplication"
@@ -14,28 +16,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".MapActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <meta-data
             android:name="com.kakao.sdk.Appkey"
             android:value="@string/kakao_app_key" />
 
+        <activity android:name=".LoginActivity"></activity>
 
-        <activity android:name=".LoginActivity">
-
-
-        </activity>
-
-
-        <activity android:name=".LoginMainActivity">
-
-        </activity>
-
+        <activity android:name=".LoginMainActivity"></activity>
 
         <activity
             android:name=".ProfileActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
-
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -45,12 +38,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-
         <activity
             android:name=".IntroActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -59,7 +49,6 @@
         <activity
             android:name=".WritingActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".ClickActivity"
             android:theme="@style/AppTheme.NoActionBar" />
